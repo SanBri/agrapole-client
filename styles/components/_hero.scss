@@ -1,0 +1,21 @@
+.hero {
+  background-color: green;
+  height: 30rem;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  &__title {
+    animation: slide-apparition 0.8s ease-out;
+  }
+  &__catchphrase {
+    animation: slide-apparition 0.8s ease-out;
+  }
+  &__content {
+    opacity: 0;
+    animation: shade-apparition 1s 0.6s forwards;
+    width: 50%;
+    text-align: center;
+  }
+}
