@@ -1,5 +1,12 @@
 // Base information (typography, normalization)
 @import "./styles/base/base";
+@import "./styles/base/typography";
 
 // Layout (header, footer)
 @import "./styles/layouts/header.scss";
+
+// Utils
+@import "./styles/utils/animation";
+
+// Components
+@import "./styles/components/hero.scss";
