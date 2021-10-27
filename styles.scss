@@ -1,12 +1,17 @@
+// Utils
+@import "./styles/utils/animation";
+@import "./styles/utils/variables";
+
 // Base information (typography, normalization)
 @import "./styles/base/base";
 @import "./styles/base/typography";
 
 // Layout (header, footer)
-@import "./styles/layouts/header.scss";
+@import "./styles/layouts/header";
 
-// Utils
-@import "./styles/utils/animation";
+// Containers
+@import "./styles/containers/half-blocks";
 
 // Components
-@import "./styles/components/hero.scss";
+@import "./styles/components/hero";
+@import "./styles/components/PDF-card";
