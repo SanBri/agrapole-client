@@ -4,6 +4,7 @@ import Script from "next/script";
 import Layout from "../components/layout/Layout";
 import Hero from "../components/Hero";
 import PDFCard from "../components/common/PDFCard";
+import Slider from "../components/Slider";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Slider />
     </>
   );
 }
