@@ -1,0 +1,13 @@
+.cards {
+}
+
+.PDF-card {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 10%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
