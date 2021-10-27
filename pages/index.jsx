@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import PDFCard from "../components/common/PDFCard";
 import HalfBlocks from "../components/common/HalfBlocks";
 import Slider from "../components/Slider";
+import Contact from "../components/Contact";
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ export default function Home() {
           <PDFCard />
         </div>
       </HalfBlocks>
+      <Contact />
     </>
   );
 }
