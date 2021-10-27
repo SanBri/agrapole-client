@@ -4,6 +4,7 @@ import Script from "next/script";
 import Layout from "../components/layout/Layout";
 import Hero from "../components/Hero";
 import PDFCard from "../components/common/PDFCard";
+import HalfBlocks from "../components/common/HalfBlocks";
 import Slider from "../components/Slider";
 
 export default function Home() {
@@ -17,18 +18,25 @@ export default function Home() {
 
       <Layout />
       <Hero></Hero>
-      <section>
-        <div className='half-blocks'>
-          <div className='half-blocks__cards'>
-            <PDFCard />
-            <PDFCard />
-          </div>
-          <div className='half-blocks__image'>
-            <img src='https://picsum.photos/200' width='100%' />
-          </div>
+      <HalfBlocks>
+        <div className='half-blocks__cards'>
+          <PDFCard />
+          <PDFCard />
         </div>
-      </section>
+        <div className='half-blocks__image img-right'>
+          <img src='https://picsum.photos/200' width='100%' />
+        </div>
+      </HalfBlocks>
       <Slider />
+      <HalfBlocks>
+        <div className='half-blocks__image img-left'>
+          <img src='https://picsum.photos/250' width='100%' />
+        </div>
+        <div className='half-blocks__cards'>
+          <PDFCard />
+          <PDFCard />
+        </div>
+      </HalfBlocks>
     </>
   );
 }
