@@ -14,7 +14,9 @@
   }
   &__catchphrase {
     animation: down-slide-apparition 0.8s ease-out;
-    background-color: rgba($background-prim, 0.8);
+    // background-color: rgba($background-prim, 0.8);
+    background-color: rgba($color-primary, 0.8);
+    color: white;
     border-radius: 4%;
     padding: 0.5rem;
   }
@@ -24,7 +26,9 @@
     animation: shade-apparition 1s 0.6s forwards;
     width: 50%;
     text-align: center;
-    background-color: rgba($background-prim, 0.8);
+    // background-color: rgba($background-prim, 0.8);
+    background-color: rgba($color-primary, 0.8);
+    color: white;
     border-radius: 4%;
   }
 }

@@ -1,11 +1,14 @@
 // Colors
 $background-prim: rgb(247, 247, 247);
 
-// $color-primary:
+$color-primary: rgb(102, 0, 0);
 // $color-secondary:
 
 $color-danger: #ee3939ca;
 $color-success: #57ee39ca;
+
+// Margin & Padding
+$between-blocks: 1rem;
 
 // Breakpoints
 $breakpoint-small-screen: 1400px;
