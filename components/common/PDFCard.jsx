@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "./Button";
 
 const PDFCard = ({ title = "Titre", link = "#" }) => {
   return (
@@ -6,7 +7,7 @@ const PDFCard = ({ title = "Titre", link = "#" }) => {
       <h5>{title}</h5>
       <Link href={link}>
         <a>
-          <button>Voir le PDF</button>
+          <Button text='Voir le PDF' />
         </a>
       </Link>
     </div>

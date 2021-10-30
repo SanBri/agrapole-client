@@ -1,0 +1,13 @@
+.button {
+  width: 6rem;
+  padding: 0.5rem;
+  margin: auto;
+  background-color: $color-primary;
+  color: white;
+  cursor: pointer;
+  border-radius: 8%;
+  box-shadow: 0 0 0 $color-primary;
+  &:hover {
+    animation: pulse 1.2s;
+  }
+}
