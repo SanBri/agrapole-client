@@ -5,13 +5,15 @@
   &__cards {
     // opacity: 0;
     // animation: right-slide-apparition 1s 0.8s forwards;
-    width: 50%;
-    height: 22rem;
+    width: 45%;
+    height: 23rem;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 5rem;
+    margin: 4rem 1rem 0;
+    background-color: rgba($color-primary, 0.8);
+    border-radius: 2%;
   }
   &__image {
     margin-top: $between-blocks;
