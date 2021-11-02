@@ -5,7 +5,9 @@ const Contact = () => {
     <section>
       <div className='contact'>
         <div className='contact__content'>
-          <div className='contact__content-image'></div>
+          <div className='contact__content-image'>
+            <img src='/contact.jpg' width='100%' alt='contact' />
+          </div>
           <div className='contact__content-text'>
             <div className='contact__content-text-title'>
               <h4>Nous Contacter</h4>
