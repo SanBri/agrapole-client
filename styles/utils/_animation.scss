@@ -25,3 +25,30 @@
   from {
   }
 }
+
+@keyframes shake {
+  0% {
+    transform: translateX(0px);
+    color: rgba($color-primary, 0.8);
+  }
+  20% {
+    transform: translateX(-5px);
+    color: rgba($color-primary, 0.6);
+  }
+  40% {
+    transform: translateX(5px);
+    color: rgba($color-primary, 0.4);
+  }
+  60% {
+    transform: translateX(-5px);
+    color: rgba($color-primary, 0.6);
+  }
+  80% {
+    transform: translateX(5px);
+    color: rgba($color-primary, 0.8);
+  }
+  100% {
+    transform: translateX(0px);
+    color: rgba($color-primary, 1);
+  }
+}

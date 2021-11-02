@@ -17,28 +17,29 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Layout />
-      <Hero></Hero>
-      <HalfBlocks>
-        <div className='half-blocks__cards'>
-          <PDFCard />
-          <PDFCard />
-        </div>
-        <div className='half-blocks__image img-right'>
-          <img src='/right.jfif' width='100%' />
-        </div>
-      </HalfBlocks>
-      <Slider />
-      <HalfBlocks>
-        <div className='half-blocks__image img-left'>
-          <img src='/left.jpg' width='100%' />
-        </div>
-        <div className='half-blocks__cards'>
-          <PDFCard />
-          <PDFCard />
-        </div>
-      </HalfBlocks>
-      <Contact />
+      <Layout>
+        <Hero></Hero>
+        <HalfBlocks>
+          <div className='half-blocks__cards'>
+            <PDFCard />
+            <PDFCard />
+          </div>
+          <div className='half-blocks__image img-right'>
+            <img src='/right.jfif' width='100%' />
+          </div>
+        </HalfBlocks>
+        <Slider />
+        <HalfBlocks>
+          <div className='half-blocks__image img-left'>
+            <img src='/left.jpg' width='100%' />
+          </div>
+          <div className='half-blocks__cards'>
+            <PDFCard />
+            <PDFCard />
+          </div>
+        </HalfBlocks>
+        <Contact />
+      </Layout>
     </>
   );
 }
