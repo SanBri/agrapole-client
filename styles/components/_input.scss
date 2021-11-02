@@ -1,0 +1,28 @@
+.input {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & input[type="text"],
+  input[type="email"] {
+    width: 11rem;
+  }
+  & input,
+  textarea {
+    padding: 0.2rem;
+    outline-color: rgba($color-primary, 0.4);
+    transition: all 1s;
+    &:focus {
+      outline-color: rgba($color-primary, 0.8);
+    }
+  }
+  label {
+    margin-bottom: 0.2rem;
+  }
+  textarea {
+    width: 20rem;
+    height: 7rem;
+  }
+}
