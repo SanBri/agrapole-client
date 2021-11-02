@@ -9,6 +9,9 @@
   input[type="email"] {
     width: 11rem;
   }
+  & input[type="submit"] {
+    border: none;
+  }
   & input,
   textarea {
     padding: 0.2rem;
