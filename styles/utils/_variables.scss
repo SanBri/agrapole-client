@@ -5,12 +5,20 @@ $color-primary: rgb(102, 0, 0);
 // $color-secondary:
 
 $color-danger: #ee3939ca;
-$color-success: #57ee39ca;
-
-// Margin & Padding
-$between-blocks: 1rem;
+$color-success: #318f1fca;
 
 // Breakpoints
+$breakpoint-large-screen: 1401px;
 $breakpoint-small-screen: 1400px;
 $breakpoint-smartphone: 800px;
 $breakpoint-small-smartphone: 400px;
+
+// Margin & Padding
+@mixin margin-between-blocks() {
+  @media all and (min-width: $breakpoint-large-screen) {
+    margin-top: 1rem;
+  }
+  @media all and (max-width: $breakpoint-small-screen) {
+    margin-top: 1rem;
+  }
+}

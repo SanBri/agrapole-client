@@ -16,7 +16,7 @@
     border-radius: 2%;
   }
   &__image {
-    margin-top: $between-blocks;
+    @include margin-between-blocks();
     border-radius: 2%;
     width: 50%;
     height: 30rem;
@@ -29,4 +29,14 @@
 }
 .img-left {
   margin-left: 2rem;
+}
+
+/* PETIT ECRAN */
+@media all and (max-width: $breakpoint-small-screen) {
+  .half-blocks {
+    height: 26rem;
+    &__cards {
+      height: 18rem;
+    }
+  }
 }

@@ -8,3 +8,11 @@
   justify-content: space-evenly;
   text-align: center;
 }
+
+/* PETIT ECRAN */
+@media all and (max-width: $breakpoint-small-screen) {
+  .PDF-card {
+    width: 13rem;
+    height: 13rem;
+  }
+}

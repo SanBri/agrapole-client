@@ -39,3 +39,15 @@
     }
   }
 }
+
+/* PETIT ECRAN */
+@media all and (max-width: $breakpoint-small-screen) {
+  .contact {
+    &__content {
+      width: 100%;
+      &-image {
+        left: 20%;
+      }
+    }
+  }
+}
