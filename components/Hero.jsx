@@ -3,7 +3,7 @@ const Hero = () => {
     <section>
       <div className='hero'>
         <div className='hero__title'>
-          <h1>AGROPOLE</h1>
+          <h1>FRSEA Auverge-Rhône-Alpes</h1>
         </div>
         <div className='hero__catchphrase'>
           <h3>Promouvoir les métiers de l&#39;Agriculture</h3>

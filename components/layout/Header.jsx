@@ -7,7 +7,7 @@ const Header = () => {
         <div className='header__logo'>
           <Link href='/'>
             <a>
-              <img src='./vercel.svg' width='200rem' height='100rem' />
+              <img src='./logo.png' width='100%' />
             </a>
           </Link>
         </div>
