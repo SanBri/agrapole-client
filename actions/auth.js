@@ -18,7 +18,7 @@ export const loadUser = () => async (dispatch) => {
   }
 
   try {
-    const res = await axios.get(`http://localhost:5000/api/auth`);
+    const res = await axios.get(`${process.env.URL}/auth`);
     dispatch({
       type: USER_LOADED,
       payload: res.data,
