@@ -18,7 +18,7 @@ export const loadUser = () => async (dispatch) => {
   }
 
   try {
-    const res = await axios.get(`${process.env.URL}/auth`);
+    const res = await axios.get(`http://localhost:5000/api/auth`);
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -31,4 +31,36 @@ export const loadUser = () => async (dispatch) => {
 };
 
 // Login
-export const login = { mail, password };
+export const login =
+  ({ mail, password }) =>
+  async (dispatch) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const body = JSON.stringify({ mail, password });
+    try {
+      const res = await axios.post(`${process.env.URL}/auth`, body, config);
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data,
+      });
+      dispatch(loadUser());
+    } catch (err) {
+      const errors = err.response.data.errors;
+      if (errors) {
+        errors.forEach((error) => console.log(error.msg));
+        // errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+      }
+      dispatch({
+        type: LOGIN_FAIL,
+      });
+    }
+  };
+
+// Logout
+export const logout = () => (dispatch) => {
+  dispatch({ type: LOGOUT });
+};

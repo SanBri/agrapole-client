@@ -29,7 +29,19 @@ const authReducer = (state = initialState, action) => {
         loading: false,
         user: payload,
       };
+    case LOGIN_SUCCESS:
+      if (typeof window !== "undefined") {
+        localStorage.setItem("token", payload.token);
+      }
+      return {
+        ...state,
+        payload,
+        isAuthenticated: true,
+        loading: false,
+      };
     case AUTH_ERROR:
+    case LOGIN_FAIL:
+    case LOGOUT:
       if (typeof window !== "undefined") {
         localStorage.removeItem("token");
       }
