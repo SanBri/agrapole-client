@@ -1,9 +1,11 @@
+import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../actions/auth";
 
 import Input from "../components/common/Input";
+import Spinner from "../components/common/Spinner";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -30,7 +32,7 @@ const LoginForm = () => {
 
   isAuthenticated && router.push("/");
 
-  return (
+  return isAuthenticated !== true ? (
     <form id='loginForm' onSubmit={(e) => onSubmit(e)}>
       <Input
         name='mail'
@@ -48,8 +50,14 @@ const LoginForm = () => {
         onChange={(e) => onChange(e)}
       />
       <Input type='submit' value='Se connecter' />
-      <Input type='button' value='Annuler' />
+      <Link href='/'>
+        <a>
+          <Input type='button' value='Annuler' />
+        </a>
+      </Link>
     </form>
+  ) : (
+    <Spinner />
   );
 };
 
