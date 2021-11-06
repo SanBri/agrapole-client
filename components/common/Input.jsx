@@ -35,7 +35,7 @@ const Input = ({
         onChange={onChange}
       />
     );
-  } else if (type === "submit") {
+  } else if (type === "submit" || type === "button") {
     input = (
       <input type={type} required={false} className='button' value={value} />
     );

@@ -48,6 +48,7 @@ const LoginForm = () => {
         onChange={(e) => onChange(e)}
       />
       <Input type='submit' value='Se connecter' />
+      <Input type='button' value='Annuler' />
     </form>
   );
 };
