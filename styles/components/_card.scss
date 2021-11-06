@@ -1,0 +1,18 @@
+.card {
+  width: 50%;
+  height: 20rem;
+  margin: 5rem auto 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: #00000029 1px 6px 6px;
+  border-radius: 1rem;
+
+  &__title {
+    color: $color-primary;
+  }
+  &__content {
+  }
+}
