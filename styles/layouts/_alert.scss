@@ -1,0 +1,15 @@
+.alert {
+  width: auto;
+  padding: 0.8rem;
+  margin: 1rem auto;
+  text-align: center;
+  border-radius: 5%;
+  font-weight: bold;
+  animation: reverse-shade-apparition 1.8s 3.5s;
+  &__success {
+    background-color: $color-success;
+  }
+  &__danger {
+    background-color: $color-danger;
+  }
+}
