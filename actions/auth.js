@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import setAuthToken from "../utils/setAuthToken";
+import { setAlert } from "./alert";
 import {
   USER_LOADED,
   AUTH_ERROR,
@@ -51,8 +52,7 @@ export const login =
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
-        errors.forEach((error) => console.log(error.msg));
-        // errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+        errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
       }
       dispatch({
         type: LOGIN_FAIL,
