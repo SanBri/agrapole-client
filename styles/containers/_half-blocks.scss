@@ -22,7 +22,11 @@
     width: 50%;
     height: 30rem;
     overflow: hidden;
-    box-shadow: $all-shadow;
+    img {
+      border-radius: 2%;
+
+      box-shadow: $all-shadow;
+    }
   }
 }
 
