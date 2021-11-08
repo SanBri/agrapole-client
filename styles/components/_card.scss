@@ -1,7 +1,8 @@
 .card {
   width: 50%;
-  height: 20rem;
+  height: auto;
   margin: 5rem auto 0;
+  padding: 1rem;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -9,9 +10,9 @@
   align-items: center;
   box-shadow: #00000029 1px 6px 6px;
   border-radius: 1rem;
-
   &__title {
     color: $color-primary;
+    margin-bottom: 1rem;
   }
   &__content {
   }

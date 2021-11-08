@@ -18,6 +18,15 @@
   }
 }
 
+@keyframes reverse-shade-apparition {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes pulse {
   to {
     box-shadow: 0 0 0 18px rgba($color-primary, 0.01);
