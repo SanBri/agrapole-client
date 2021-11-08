@@ -11,6 +11,7 @@
   }
   &__carousel {
     .carousel {
+      box-shadow: $all-shadow;
       max-width: 50%;
       height: 20rem;
       &-root {

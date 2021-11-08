@@ -14,6 +14,9 @@ $breakpoint-small-screen: 1400px;
 $breakpoint-smartphone: 800px;
 $breakpoint-small-smartphone: 400px;
 
+// Shadows
+$all-shadow: #00000029 1px 6px 6px;
+
 // Margin & Padding
 @mixin margin-between-blocks() {
   @media all and (min-width: $breakpoint-large-screen) {
