@@ -1,4 +1,4 @@
-import { GET_PDFCARDS, PDFCARDS_ERROR } from "../actions/types";
+import { GET_PDFCARDS, ADD_PDFCARD, PDFCARDS_ERROR } from "../actions/types";
 
 const initialState = {
   PDFCards: [],
@@ -14,6 +14,12 @@ const PDFCardReducer = (state = initialState, action) => {
       return {
         ...state,
         PDFCards: state.PDFCards,
+        loading: false,
+      };
+    case ADD_PDFCARD:
+      return {
+        ...state,
+        PDFCards: [payload, ...state.PDFCards],
         loading: false,
       };
     case PDFCARDS_ERROR:
