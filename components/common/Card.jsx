@@ -3,7 +3,7 @@ const Card = ({ title, children }) => {
     <div className='card'>
       {title && (
         <div className='card__title'>
-          <h1>{title}</h1>
+          <h2>{title}</h2>
         </div>
       )}
       <div className='card__content'>{children}</div>
