@@ -1,6 +1,11 @@
 import axios from "axios";
 
-import { GET_PDFCARDS, ADD_PDFCARD, PDFCARDS_ERROR } from "./types";
+import {
+  GET_PDFCARDS,
+  GET_PDFCARD,
+  ADD_PDFCARD,
+  PDFCARDS_ERROR,
+} from "./types";
 import setAlert from "./alert";
 
 // Get All PDFCards by block
@@ -12,6 +17,25 @@ export const getPDFCards = (block, id) => async (dispatch) => {
     dispatch({
       type: GET_PDFCARDS,
       payload: payload,
+    });
+  } catch (err) {
+    dispatch({
+      type: PDFCARDS_ERROR,
+      payload: {
+        msg: err.response,
+        status: err.response,
+      },
+    });
+  }
+};
+
+// Get a PDFCard
+export const getPDFCard = (id) => async (dispatch) => {
+  try {
+    const res = await axios.get(`${process.env.URL}/pdfCards/pdfCard/${id}`);
+    dispatch({
+      type: GET_PDFCARD,
+      payload: res.data,
     });
   } catch (err) {
     dispatch({
