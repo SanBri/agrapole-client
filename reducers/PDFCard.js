@@ -10,9 +10,10 @@ const PDFCardReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case GET_PDFCARDS:
+      state.PDFCards.push(payload);
       return {
         ...state,
-        PDFCards: payload,
+        PDFCards: state.PDFCards,
         loading: false,
       };
     case PDFCARDS_ERROR:
