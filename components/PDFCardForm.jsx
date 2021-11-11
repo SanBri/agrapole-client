@@ -48,7 +48,6 @@ const PDFCardForm = ({ whichBlock, id, edit = false, inPDFCard = false }) => {
     !id
       ? dispatch(addPDFCard(formData))
       : dispatch(addPDFCard(formData, id, true));
-    console.log(formData.title);
     setTimeout(() => {
       router.reload("/dashboard");
     }, 1300);
