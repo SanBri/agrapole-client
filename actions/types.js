@@ -11,3 +11,6 @@ export const LOAD_PDFCARDS = "LOAD_PDFCARDS";
 export const ADD_PDFCARD = "ADD_PDFCARD";
 export const DELETE_PDFCARD = "DELETE_PDFCARD";
 export const PDFCARDS_ERROR = "PDFCARDS_ERROR";
+export const GET_HERO = "GET_HERO";
+export const EDIT_HERO = "EDIT_HERO";
+export const HERO_ERROR = "HERO_ERROR";
