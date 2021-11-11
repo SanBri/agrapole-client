@@ -11,18 +11,9 @@ const dashboard = () => {
       </Head>
       <div className='administration'>
         <h1>Tableau de bord</h1>
-        <DashboardLayout
-          type='PDF'
-          title='Fenêtre PDF A'
-          block='A'
-          reducer='PDFCardReducer'
-        />
-        <DashboardLayout
-          type='PDF'
-          title='Fenêtre PDF B'
-          block='B'
-          reducer='PDFCardReducer'
-        />
+        <DashboardLayout type='hero' title='Accueil' />
+        <DashboardLayout type='PDF' title='Fenêtre PDF A' block='A' />
+        <DashboardLayout type='PDF' title='Fenêtre PDF B' block='B' />
       </div>
     </>
   );

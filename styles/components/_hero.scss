@@ -2,7 +2,6 @@
   background: url("/hero.jpg");
   background-size: cover;
   background-position-y: 30%;
-
   height: 100vh;
   padding-top: 5rem;
   display: flex;
@@ -14,7 +13,6 @@
   }
   &__catchphrase {
     animation: down-slide-apparition 0.8s ease-out;
-    // background-color: rgba($background-prim, 0.8);
     background-color: rgba($color-primary, 0.8);
     color: white;
     border-radius: 4%;
@@ -26,9 +24,44 @@
     animation: shade-apparition 1s 0.6s forwards;
     width: 50%;
     text-align: center;
-    // background-color: rgba($background-prim, 0.8);
     background-color: rgba($color-primary, 0.8);
     color: white;
     border-radius: 4%;
+  }
+}
+
+// Dashboard Section
+.hero-admin {
+  height: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  label {
+    font-weight: bold;
+  }
+  &__title {
+    padding: 0.5rem;
+    h1 {
+      margin-top: 0.2rem;
+      font-weight: initial;
+      font-size: 1rem;
+    }
+  }
+  &__catchphrase {
+    padding: 0.5rem;
+    h3 {
+      margin-top: 0.2rem;
+      font-weight: initial;
+      font-size: 1rem;
+    }
+  }
+  &__content {
+    margin-top: 0.2rem;
+    padding: 0.5rem;
+    margin: auto;
+    width: 50%;
+    p {
+      font-size: 0.85rem;
+    }
   }
 }
