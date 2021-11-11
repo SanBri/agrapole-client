@@ -6,11 +6,18 @@ import { addPDFCard, getPDFCard } from "../actions/PDFCard";
 import Button from "./common/Button";
 import Input from "./common/Input";
 
-const PDFCardForm = ({ whichBlock, id, edit = false, inPDFCard = false }) => {
+const PDFCardForm = ({
+  whichBlock,
+  id,
+  maximumPDFCards = false,
+  edit = false,
+  inPDFCard = false,
+}) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
   const [showAddPDFCard, toggleshowAddPDFCard] = useState(edit);
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -45,6 +52,8 @@ const PDFCardForm = ({ whichBlock, id, edit = false, inPDFCard = false }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setLoading(!loading);
+    toggleshowAddPDFCard(!showAddPDFCard);
     !id
       ? dispatch(addPDFCard(formData))
       : dispatch(addPDFCard(formData, id, true));
@@ -60,13 +69,21 @@ const PDFCardForm = ({ whichBlock, id, edit = false, inPDFCard = false }) => {
 
   return (
     <>
-      {!inPDFCard && (
-        <Button
-          className='addPDFButton'
-          text={addButtonText}
-          onClick={(e) => toggleshowAddPDFCard(!showAddPDFCard)}
-        ></Button>
-      )}
+      {!inPDFCard &&
+        (!maximumPDFCards && !loading ? (
+          <Button
+            className='addPDFButton'
+            text={addButtonText}
+            onClick={(e) => toggleshowAddPDFCard(!showAddPDFCard)}
+          ></Button>
+        ) : !loading ? (
+          <p className='info italic'>
+            Le nombre maximum de fichier PDF pour cette fenêtre est atteint,
+            supprimez-en pour en ajouter de nouveaux
+          </p>
+        ) : (
+          ""
+        ))}
       {showAddPDFCard ? (
         <form
           className='PDFCard-form'

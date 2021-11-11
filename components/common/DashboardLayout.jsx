@@ -16,6 +16,7 @@ const DashboardLayout = ({ type, title, block }) => {
   let action;
   let loading;
   let data = null;
+  let maximumPDFCards = false;
   type === "PDF" ? (action = getPDFCards(block, id)) : "";
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const DashboardLayout = ({ type, title, block }) => {
     ? ((data = useSelector((state) =>
         state.PDFCardReducer.PDFCards.find((e) => e.id === id)
       )),
+      data && (data.data.length > 2 ? (maximumPDFCards = true) : ""),
       (loading = useSelector((state) => state.PDFCardReducer.loading)))
     : "";
 
@@ -55,7 +57,7 @@ const DashboardLayout = ({ type, title, block }) => {
         ) : (
           ""
         )}
-        <PDFCardForm whichBlock={block} />
+        <PDFCardForm maximumPDFCards={maximumPDFCards} whichBlock={block} />
       </Card>
     </>
   );
