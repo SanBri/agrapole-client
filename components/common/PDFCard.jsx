@@ -26,7 +26,7 @@ const PDFCard = ({ id, block, title = "Titre", link = "#", admin = false }) => {
       dispatch(deletePDFCard(id));
       setTimeout(() => {
         router.reload("/dashboard");
-      }, 1500);
+      }, 1000);
     }
   };
 

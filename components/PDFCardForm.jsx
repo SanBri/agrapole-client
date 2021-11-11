@@ -50,7 +50,7 @@ const PDFCardForm = ({ whichBlock, id, edit = false, inPDFCard = false }) => {
       : dispatch(addPDFCard(formData, id, true));
     setTimeout(() => {
       router.reload("/dashboard");
-    }, 1300);
+    }, 1000);
   };
 
   let addButtonText;
