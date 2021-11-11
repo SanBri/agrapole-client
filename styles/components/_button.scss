@@ -3,12 +3,25 @@
   padding: 0.5rem;
   margin: auto;
   background-color: $color-primary;
+  opacity: 0.75;
   color: white;
   cursor: pointer;
   border-radius: 8%;
   box-shadow: 0 0 0 $color-primary;
   text-align: center;
+  transition: opacity 0.5s;
+  // transition-property: opacity;
+  // transition-duration: 0.5s;
   &:hover {
-    animation: pulse 1s infinite;
+    opacity: 1;
   }
+}
+
+.edit {
+  background-color: $color-edit;
+  box-shadow: 0 0 0 $color-edit;
+}
+.delete {
+  background-color: $color-danger;
+  box-shadow: 0 0 0 $color-danger;
 }

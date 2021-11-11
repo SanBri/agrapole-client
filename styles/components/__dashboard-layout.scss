@@ -1,0 +1,17 @@
+.dashboard-layout {
+  &__pdfCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    & .PDF-card {
+      margin: 5px;
+    }
+  }
+}
+.addPDFButton {
+  width: 10rem;
+  background-color: $color-primary;
+  font-weight: bold;
+  margin: 1rem auto;
+}
