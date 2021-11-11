@@ -15,3 +15,14 @@
   font-weight: bold;
   margin: 1rem auto;
 }
+
+/* PETIT ECRAN */
+@media all and (max-width: $breakpoint-small-screen) {
+  .dashboard-layout {
+    &__pdfCards {
+      & .PDF-card {
+        margin: 2px;
+      }
+    }
+  }
+}

@@ -17,6 +17,9 @@ const PDFCard = ({ id, block, title = "Titre", link = "#", admin = false }) => {
   let editButtonText;
   !showForm ? (editButtonText = "Modifier") : (editButtonText = "Annuler");
 
+  let classDefinition = "PDF-card";
+  admin && (classDefinition += " admin");
+
   const deletePDFCardClick = () => {
     if (
       window.confirm(
@@ -31,7 +34,7 @@ const PDFCard = ({ id, block, title = "Titre", link = "#", admin = false }) => {
   };
 
   return (
-    <div className='PDF-card'>
+    <div className={classDefinition}>
       {!showForm && (
         <>
           <h5>{title}</h5>

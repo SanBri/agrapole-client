@@ -30,6 +30,11 @@
     }
   }
 }
+// Dashboard
+.admin {
+  width: 20rem;
+  height: 20rem;
+}
 
 /* PETIT ECRAN */
 @media all and (max-width: $breakpoint-small-screen) {
@@ -41,5 +46,10 @@
         width: auto;
       }
     }
+  }
+  // Dashboard
+  .admin {
+    width: 20rem;
+    height: 15rem;
   }
 }
