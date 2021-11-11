@@ -4,6 +4,9 @@ import { v4 as uuidv4 } from "uuid";
 
 import Card from "../common/Card";
 import Spinner from "../common/Spinner";
+import PDFCard from "./PDFCard";
+import PDFCardForm from "../PDFCardForm";
+import Alert from "../layout/Alert";
 import { getPDFCards } from "../../actions/PDFCard";
 
 const DashboardLayout = ({ type, title, block }) => {
@@ -27,19 +30,34 @@ const DashboardLayout = ({ type, title, block }) => {
     : "";
 
   return (
-    <Card title={title}>
-      {loading || !data ? (
-        <Spinner />
-      ) : type === "PDF" ? (
-        data.data.length > 0 ? (
-          data.data.map((e) => <p key={e.title}>{e.title} </p>)
+    <>
+      <Card title={title}>
+        <Alert />
+
+        {loading || !data ? (
+          <Spinner />
+        ) : type === "PDF" ? (
+          data.data.length > 0 ? (
+            <div className='dashboard-layout__pdfCards'>
+              {data.data.map((e) => (
+                <PDFCard
+                  key={e._id}
+                  block={block}
+                  id={e._id}
+                  title={e.title}
+                  admin={true}
+                />
+              ))}
+            </div>
+          ) : (
+            <p>Il n'y a aucune carte PDF dans cette fenêtre</p>
+          )
         ) : (
-          <p>Il n'y a aucune carte PDF dans cette fenêtre</p>
-        )
-      ) : (
-        ""
-      )}
-    </Card>
+          ""
+        )}
+        <PDFCardForm whichBlock={block} />
+      </Card>
+    </>
   );
 };
 

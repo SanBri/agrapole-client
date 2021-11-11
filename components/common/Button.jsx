@@ -1,6 +1,10 @@
-const Button = ({ text }) => {
+const Button = ({ text, className, onClick }) => {
+  let classDefinition = `button`;
+
+  className && (classDefinition += ` ${className}`);
+
   return (
-    <div className='button'>
+    <div onClick={onClick} className={classDefinition}>
       <p>{text}</p>
     </div>
   );
