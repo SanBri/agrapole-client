@@ -1,8 +1,9 @@
 import {
   GET_PDFCARDS,
-  ADD_PDFCARD,
-  PDFCARDS_ERROR,
   GET_PDFCARD,
+  ADD_PDFCARD,
+  DELETE_PDFCARD,
+  PDFCARDS_ERROR,
 } from "../actions/types";
 
 const initialState = {
@@ -32,6 +33,13 @@ const PDFCardReducer = (state = initialState, action) => {
       return {
         ...state,
         PDFCards: [payload, ...state.PDFCards],
+        loading: false,
+      };
+    case DELETE_PDFCARD:
+      state.PDFCards.filter((e) => e._id !== payload);
+      return {
+        ...state,
+        PDFCards: state.PDFCards,
         loading: false,
       };
     case PDFCARDS_ERROR:

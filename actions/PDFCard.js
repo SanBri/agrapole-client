@@ -4,6 +4,7 @@ import {
   GET_PDFCARDS,
   GET_PDFCARD,
   ADD_PDFCARD,
+  DELETE_PDFCARD,
   PDFCARDS_ERROR,
 } from "./types";
 
@@ -49,7 +50,7 @@ export const getPDFCard = (id) => async (dispatch) => {
   }
 };
 
-// Add or Edit PDFCard
+// Add or Edit a PDFCard
 export const addPDFCard =
   (formData, id, edit = false) =>
   async (dispatch) => {
@@ -90,3 +91,23 @@ export const addPDFCard =
       });
     }
   };
+
+// Delete a PDF Card
+export const deletePDFCard = (id) => async (dispatch) => {
+  try {
+    await axios.delete(`${process.env.URL}/pdfCards/${id}`);
+    dispatch({
+      type: DELETE_PDFCARD,
+      payload: id,
+    });
+    dispatch(setAlert("La carte PDF a bien été supprimée", "success"));
+  } catch (err) {
+    dispatch({
+      type: PDFCARDS_ERROR,
+      payload: {
+        msg: err.response.statusText,
+        status: err.response.status,
+      },
+    });
+  }
+};
