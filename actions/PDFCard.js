@@ -6,7 +6,8 @@ import {
   ADD_PDFCARD,
   PDFCARDS_ERROR,
 } from "./types";
-import setAlert from "./alert";
+
+import { setAlert } from "./alert";
 
 // Get All PDFCards by block
 export const getPDFCards = (block, id) => async (dispatch) => {
@@ -68,11 +69,11 @@ export const addPDFCard =
           type: ADD_PDFCARD,
           payload: res.data,
         });
-        dispatch(setAlert("La carte PDF a bien été créée", success));
+        dispatch(setAlert("La carte PDF a bien été créée", "success"));
       } else {
         await axios.put(`${process.env.URL}/pdfCards/${id}`, formData, config);
         dispatch(
-          setAlert("Les modifications ont bien été enregistrées", success)
+          setAlert("Les modifications ont bien été enregistrées", "success")
         );
       }
     } catch (err) {
