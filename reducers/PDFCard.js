@@ -1,6 +1,7 @@
 import {
   GET_PDFCARDS,
   GET_PDFCARD,
+  LOAD_PDFCARDS,
   ADD_PDFCARD,
   DELETE_PDFCARD,
   PDFCARDS_ERROR,
@@ -28,6 +29,11 @@ const PDFCardReducer = (state = initialState, action) => {
         ...state,
         PDFCard: payload,
         loading: false,
+      };
+    case LOAD_PDFCARDS:
+      return {
+        ...state,
+        loading: true,
       };
     case ADD_PDFCARD:
       return {

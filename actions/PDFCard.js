@@ -3,6 +3,7 @@ import axios from "axios";
 import {
   GET_PDFCARDS,
   GET_PDFCARD,
+  LOAD_PDFCARDS,
   ADD_PDFCARD,
   DELETE_PDFCARD,
   PDFCARDS_ERROR,
@@ -77,6 +78,9 @@ export const addPDFCard =
           setAlert("Les modifications ont bien été enregistrées", "success")
         );
       }
+      dispatch({
+        type: LOAD_PDFCARDS,
+      });
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
@@ -99,6 +103,9 @@ export const deletePDFCard = (id) => async (dispatch) => {
     dispatch({
       type: DELETE_PDFCARD,
       payload: id,
+    });
+    dispatch({
+      type: LOAD_PDFCARDS,
     });
     dispatch(setAlert("La carte PDF a bien été supprimée", "success"));
   } catch (err) {

@@ -7,6 +7,7 @@ export const SET_ALERT = "SET_ALERT";
 export const REMOVE_ALERT = "REMOVE_ALERT";
 export const GET_PDFCARDS = "GET_PDFCARDS";
 export const GET_PDFCARD = "GET_PDFCARD";
+export const LOAD_PDFCARDS = "LOAD_PDFCARDS";
 export const ADD_PDFCARD = "ADD_PDFCARD";
 export const DELETE_PDFCARD = "DELETE_PDFCARD";
 export const PDFCARDS_ERROR = "PDFCARDS_ERROR";
