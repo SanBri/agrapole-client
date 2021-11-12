@@ -8,7 +8,14 @@ import { deletePDFCard } from "../../actions/PDFCard";
 import Button from "./Button";
 import PDFCardForm from "../PDFCardForm";
 
-const PDFCard = ({ id, block, title = "Titre", link = "#", admin = false }) => {
+const PDFCard = ({
+  id,
+  block,
+  blockID,
+  title = "Titre",
+  link = "#",
+  admin = false,
+}) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -26,7 +33,7 @@ const PDFCard = ({ id, block, title = "Titre", link = "#", admin = false }) => {
         `Voulez-vous vraiment supprimer définitivement le fichier "${title}" ?`
       )
     ) {
-      dispatch(deletePDFCard(id));
+      dispatch(deletePDFCard(id, blockID));
       setTimeout(() => {
         router.reload("/dashboard");
       }, 1000);
@@ -63,7 +70,13 @@ const PDFCard = ({ id, block, title = "Titre", link = "#", admin = false }) => {
             )}
           </div>
           {showForm && (
-            <PDFCardForm id={id} whichBlock={block} edit inPDFCard />
+            <PDFCardForm
+              id={id}
+              whichBlock={block}
+              blockID={blockID}
+              edit
+              inPDFCard
+            />
           )}
         </>
       )}

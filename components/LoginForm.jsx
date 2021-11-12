@@ -14,6 +14,9 @@ const LoginForm = () => {
   );
   const router = useRouter();
 
+  // Define a ID to show Alert =
+  const id = "loginFormID";
+
   const [formData, setformData] = useState({
     mail: "",
     password: "",
@@ -26,7 +29,7 @@ const LoginForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(login({ mail, password }));
+    dispatch(login({ mail, password, id }));
     document.getElementById("password").value = "";
   };
 

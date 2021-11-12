@@ -53,7 +53,7 @@ export const getPDFCard = (id) => async (dispatch) => {
 
 // Add or Edit a PDFCard
 export const addPDFCard =
-  (formData, id, edit = false) =>
+  (formData, id, blockID, edit = false) =>
   async (dispatch) => {
     try {
       const config = {
@@ -71,11 +71,15 @@ export const addPDFCard =
           type: ADD_PDFCARD,
           payload: res.data,
         });
-        dispatch(setAlert("La carte PDF a bien été créée", "success"));
+        dispatch(setAlert("La carte PDF a bien été créée", "success", blockID));
       } else {
         await axios.put(`${process.env.URL}/pdfCards/${id}`, formData, config);
         dispatch(
-          setAlert("Les modifications ont bien été enregistrées", "success")
+          setAlert(
+            "Les modifications ont bien été enregistrées",
+            "success",
+            blockID
+          )
         );
       }
       dispatch({
@@ -84,7 +88,9 @@ export const addPDFCard =
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
-        errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+        errors.forEach((error) =>
+          dispatch(setAlert(error.msg, "danger", blockID))
+        );
       }
       dispatch({
         type: PDFCARDS_ERROR,
@@ -97,7 +103,7 @@ export const addPDFCard =
   };
 
 // Delete a PDF Card
-export const deletePDFCard = (id) => async (dispatch) => {
+export const deletePDFCard = (id, blockID) => async (dispatch) => {
   try {
     await axios.delete(`${process.env.URL}/pdfCards/${id}`);
     dispatch({
@@ -107,7 +113,7 @@ export const deletePDFCard = (id) => async (dispatch) => {
     dispatch({
       type: LOAD_PDFCARDS,
     });
-    dispatch(setAlert("La carte PDF a bien été supprimée", "success"));
+    dispatch(setAlert("La carte PDF a bien été supprimée", "success", blockID));
   } catch (err) {
     dispatch({
       type: PDFCARDS_ERROR,

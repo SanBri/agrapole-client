@@ -6,7 +6,7 @@ const login = () => {
   return (
     <div className='login'>
       <Card title='Connexion'>
-        <Alert />
+        <Alert id='loginFormID' />
         <LoginForm />
       </Card>
     </div>

@@ -9,6 +9,7 @@ import Input from "./common/Input";
 const PDFCardForm = ({
   whichBlock,
   id,
+  blockID,
   maximumPDFCards = false,
   edit = false,
   inPDFCard = false,
@@ -55,8 +56,8 @@ const PDFCardForm = ({
     setLoading(!loading);
     toggleshowAddPDFCard(!showAddPDFCard);
     !id
-      ? dispatch(addPDFCard(formData))
-      : dispatch(addPDFCard(formData, id, true));
+      ? dispatch(addPDFCard(formData, null, blockID))
+      : dispatch(addPDFCard(formData, id, blockID, true));
     setTimeout(() => {
       router.reload("/dashboard");
     }, 1000);

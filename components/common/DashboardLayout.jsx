@@ -44,7 +44,7 @@ const DashboardLayout = ({ type, title, block }) => {
   return (
     <>
       <Card title={title}>
-        <Alert />
+        <Alert blockID={id} />
         {loading || !data ? (
           <Spinner />
         ) : type === "PDF" ? (
@@ -57,6 +57,7 @@ const DashboardLayout = ({ type, title, block }) => {
                     block={block}
                     id={e._id}
                     title={e.title}
+                    blockID={id}
                     admin={true}
                   />
                 ))}
@@ -64,12 +65,16 @@ const DashboardLayout = ({ type, title, block }) => {
             ) : (
               <p>Il n'y a aucune carte PDF dans cette fenêtre</p>
             )}
-            <PDFCardForm maximumPDFCards={maximumPDFCards} whichBlock={block} />
+            <PDFCardForm
+              maximumPDFCards={maximumPDFCards}
+              whichBlock={block}
+              blockID={id}
+            />
           </>
         ) : type === "hero" ? (
           <>
             <Hero admin />
-            <HeroForm />
+            <HeroForm blockID={id} />
           </>
         ) : (
           ""

@@ -33,7 +33,7 @@ export const loadUser = () => async (dispatch) => {
 
 // Login
 export const login =
-  ({ mail, password }) =>
+  ({ mail, password, blockID }) =>
   async (dispatch) => {
     const config = {
       headers: {
@@ -52,7 +52,9 @@ export const login =
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
-        errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+        errors.forEach((error) =>
+          dispatch(setAlert(error.msg, "danger", blockID))
+        );
       }
       dispatch({
         type: LOGIN_FAIL,
