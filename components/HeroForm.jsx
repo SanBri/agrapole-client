@@ -37,6 +37,20 @@ const heroForm = () => {
     }
   }, [hero]);
 
+  useEffect(() => {
+    if (showEditHero) {
+      document.getElementById("hero").style.display = "none";
+      setFormData((formData) => ({
+        ...formData,
+        title: hero.title,
+        catchphrase: hero.catchphrase,
+        description: hero.description,
+      }));
+    } else {
+      document.getElementById("hero").style.display = "flex";
+    }
+  }, [showEditHero]);
+
   const { title, catchphrase, description } = formData;
 
   const onChange = (e) => {
@@ -87,6 +101,7 @@ const heroForm = () => {
             placeholder='Rédigez la description'
             value={description}
             onChange={(e) => onChange(e)}
+            maxLength={830}
           />
           <Input type='submit' value='Envoyer' />
         </form>

@@ -17,7 +17,7 @@ const Hero = ({ admin = false }) => {
 
   return (
     <section>
-      <div className={classDefinition.global}>
+      <div className={classDefinition.global} id='hero'>
         <div className={classDefinition.title}>
           {admin && <label>Titre actuel :</label>}
           <h1>FRSEA Auverge-Rhône-Alpes</h1>

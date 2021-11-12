@@ -65,3 +65,15 @@
     }
   }
 }
+
+#heroForm {
+  margin-top: 0.5rem;
+  input,
+  textarea {
+    width: 30rem;
+    padding: 0.5rem;
+  }
+  textarea {
+    height: 13rem;
+  }
+}

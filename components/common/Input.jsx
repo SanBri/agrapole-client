@@ -6,6 +6,7 @@ const Input = ({
   onChange,
   id,
   value,
+  maxLength,
   className = "input",
   type = "text",
   required = true,
@@ -33,6 +34,7 @@ const Input = ({
         required={required}
         value={value}
         onChange={onChange}
+        maxLength={maxLength}
       />
     );
   } else if (type === "submit" || type === "button") {
