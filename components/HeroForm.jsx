@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/router";
 
-import { getHero } from "../actions/hero";
+import { getHero, editHero } from "../actions/hero";
 import Button from "./common/Button";
 import Input from "./common/Input";
 
-const heroForm = () => {
+const heroForm = ({ blockID }) => {
   const dispatch = useDispatch();
-  const router = useRouter();
 
   const [showEditHero, toggleshowEditHero] = useState(false);
 
@@ -60,10 +58,7 @@ const heroForm = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     toggleshowEditHero(!showEditHero);
-    // dispatch(editHero(formData));
-    setTimeout(() => {
-      router.reload("/dashboard");
-    }, 1000);
+    dispatch(editHero(formData, blockID));
   };
 
   let editButtonText;

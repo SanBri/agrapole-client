@@ -10,6 +10,7 @@ const heroReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case GET_HERO:
+    case EDIT_HERO:
       return {
         ...state,
         hero: payload,
