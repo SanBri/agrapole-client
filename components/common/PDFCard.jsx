@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { v4 as uuidv4 } from "uuid";
 
-import { deletePDFCard } from "../../actions/PDFCard";
+import { getPDFCards, deletePDFCard } from "../../actions/PDFCard";
 
 import Button from "./Button";
 import PDFCardForm from "../PDFCardForm";
@@ -18,6 +19,8 @@ const PDFCard = ({
 }) => {
   const dispatch = useDispatch();
   const router = useRouter();
+  const [randomID] = useState(uuidv4());
+  let data;
 
   const [showForm, toggleShowForm] = useState(false);
 
@@ -39,6 +42,14 @@ const PDFCard = ({
       }, 1000);
     }
   };
+
+  useEffect(() => {
+    dispatch(getPDFCards(block, id));
+  }, [dispatch]);
+
+  data = useSelector((state) =>
+    state.PDFCardReducer.PDFCards.find((e) => e.id === randomID)
+  );
 
   return (
     <div className={classDefinition}>

@@ -2,10 +2,10 @@ import Head from "next/head";
 
 import Layout from "../components/layout/Layout";
 import Hero from "../components/Hero";
-import PDFCard from "../components/common/PDFCard";
 import HalfBlocks from "../components/common/HalfBlocks";
 import Slider from "../components/Slider";
 import Contact from "../components/Contact";
+import PDFCards from "../components/common/PDFCards";
 
 export default function Home() {
   return (
@@ -19,10 +19,7 @@ export default function Home() {
       <Layout>
         <Hero></Hero>
         <HalfBlocks>
-          <div className='half-blocks__cards'>
-            <PDFCard />
-            <PDFCard />
-          </div>
+          <PDFCards block='A' />
           <div className='half-blocks__image img-right'>
             <img src='/right.jfif' width='100%' />
           </div>
@@ -32,10 +29,7 @@ export default function Home() {
           <div className='half-blocks__image img-left'>
             <img src='/left.jpg' width='100%' />
           </div>
-          <div className='half-blocks__cards'>
-            <PDFCard />
-            <PDFCard />
-          </div>
+          <PDFCards block='B' />
         </HalfBlocks>
         <Contact />
       </Layout>
