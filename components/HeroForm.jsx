@@ -98,7 +98,7 @@ const heroForm = ({ blockID }) => {
             onChange={(e) => onChange(e)}
             maxLength={830}
           />
-          <Input type='submit' value='Envoyer' />
+          <Input type='submit' value='Enregistrer' />
         </form>
       ) : (
         ""
