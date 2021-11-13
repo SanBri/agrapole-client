@@ -11,6 +11,14 @@ const Hero = ({ admin = false }) => {
   }, [dispatch]);
 
   const hero = useSelector((state) => state.heroReducer.hero);
+  let { title, catchphrase, description } = hero;
+
+  if (title == null || catchphrase == null || description == null) {
+    (title = "FRSEA Auvergne-Rhône-Alpes"),
+      (catchphrase = "Formations Agricoles"),
+      (description =
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi labore inventore facilis. Ea nihil assumenda ipsam quam reiciendis aliquid sunt qui corporis in culpa molestiae doloremque rerum reprehenderit, minima quod.");
+  }
 
   !admin
     ? (classDefinition = {
@@ -31,15 +39,15 @@ const Hero = ({ admin = false }) => {
       <div className={classDefinition.global} id='hero'>
         <div className={classDefinition.title}>
           {admin && <label>Titre actuel :</label>}
-          <h1>{hero.title}</h1>
+          <h1>{title}</h1>
         </div>
         <div className={classDefinition.catchphrase}>
           {admin && <label>Sous-Titre actuel :</label>}
-          <h3>{hero.catchphrase}</h3>
+          <h3>{catchphrase}</h3>
         </div>
         <div className={classDefinition.content}>
           {admin && <label>Description actuelle :</label>}
-          <p>{hero.description}</p>
+          <p>{description}</p>
         </div>
       </div>
     </section>
