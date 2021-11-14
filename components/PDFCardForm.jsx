@@ -19,10 +19,14 @@ const PDFCardForm = ({
 
   const [showAddPDFCard, toggleshowAddPDFCard] = useState(edit);
   const [loading, setLoading] = useState(false);
+  let submitButtonText;
+  inPDFCard
+    ? (submitButtonText = "Enregistrer")
+    : (submitButtonText = "Envoyer");
 
   const [formData, setFormData] = useState({
     title: "",
-    PDF: "FICHIER PDF TEST",
+    PDF: "",
     block: whichBlock,
   });
 
@@ -45,10 +49,18 @@ const PDFCardForm = ({
     }
   }, [pdfCard]);
 
-  const { title, PDF, block } = formData;
+  const { title, PDF } = formData;
 
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === "PDF") {
+      let newFileName = fileInput.value.split("\\").pop();
+      setFormData({
+        ...formData,
+        PDF: newFileName,
+      });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
   const onSubmit = (e) => {
@@ -99,7 +111,21 @@ const PDFCardForm = ({
             value={title}
             onChange={(e) => onChange(e)}
           />
-          <Input type='submit' value='Envoyer' />
+          <Input
+            name='PDF'
+            id='fileInput'
+            label='Fichier PDF'
+            type='file'
+            accept='.pdf'
+            onChange={(e) => onChange(e)}
+            required={!edit}
+          />
+          {inPDFCard && (
+            <p className='small'>
+              <span className='bold'>Fichier actuel :</span> {PDF}
+            </p>
+          )}
+          <Input type='submit' value={submitButtonText} />
         </form>
       ) : (
         ""
