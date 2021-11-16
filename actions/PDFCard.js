@@ -124,3 +124,19 @@ export const deletePDFCard = (id, blockID) => async (dispatch) => {
     });
   }
 };
+
+// POST PDF FILE :
+export const addPDFFile = (PDFFile) => async (dispatch) => {
+  if (PDFFile) {
+    let PDFFileObject = new FormData();
+    PDFFileObject.append("pdfFile", PDFFile);
+    await axios.post(`${process.env.URL}/pdfCards/pdfFile/`, PDFFileObject, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
+  dispatch({
+    type: LOAD_PDFCARDS,
+  });
+};

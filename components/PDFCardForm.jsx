@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
-import { addPDFCard, getPDFCard } from "../actions/PDFCard";
+import { addPDFFile, addPDFCard, getPDFCard } from "../actions/PDFCard";
+import { setAlert } from "../actions/alert";
 import Button from "./common/Button";
 import Input from "./common/Input";
 
@@ -52,8 +53,18 @@ const PDFCardForm = ({
   const { title, PDF } = formData;
 
   const onChange = (e) => {
-    if (e.target.name === "PDF") {
-      let newFileName = fileInput.value.split("\\").pop();
+    if (e.target.name === "sampleFile") {
+      let newFileName;
+      fileInput.files[0] && fileInput.files[0].type != "application/pdf"
+        ? (dispatch(
+            setAlert(
+              "Veuillez importer un fichier au format PDF",
+              "danger",
+              blockID
+            )
+          ),
+          (fileInput.value = null))
+        : (newFileName = fileInput.value.split("\\").pop());
       setFormData({
         ...formData,
         PDF: newFileName,
@@ -66,13 +77,14 @@ const PDFCardForm = ({
   const onSubmit = (e) => {
     e.preventDefault();
     setLoading(!loading);
-    toggleshowAddPDFCard(!showAddPDFCard);
+    fileInput.files[0] && dispatch(addPDFFile(fileInput.files[0]));
     !id
       ? dispatch(addPDFCard(formData, null, blockID))
       : dispatch(addPDFCard(formData, id, blockID, true));
-    setTimeout(() => {
-      router.reload("/dashboard");
-    }, 1000);
+    toggleshowAddPDFCard(!showAddPDFCard),
+      setTimeout(() => {
+        router.reload("/dashboard");
+      }, 1000);
   };
 
   let addButtonText;
@@ -102,6 +114,7 @@ const PDFCardForm = ({
           className='PDFCard-form'
           id='pdfCardForm'
           onSubmit={(e) => onSubmit(e)}
+          encType='multipart/form-data'
         >
           <Input
             name='title'
@@ -112,11 +125,10 @@ const PDFCardForm = ({
             onChange={(e) => onChange(e)}
           />
           <Input
-            name='PDF'
+            name='sampleFile'
             id='fileInput'
             label='Fichier PDF'
             type='file'
-            accept='.pdf'
             onChange={(e) => onChange(e)}
             required={!edit}
           />
