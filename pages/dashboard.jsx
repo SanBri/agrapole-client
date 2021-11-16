@@ -10,10 +10,14 @@ const dashboard = () => {
         <title>FRSEA AuRA | Administration</title>
       </Head>
       <div className='administration'>
-        <h1>Tableau de bord</h1>
-        <DashboardLayout type='hero' title='Accueil' />
-        <DashboardLayout type='PDF' title='Fenêtre PDF A' block='A' />
-        <DashboardLayout type='PDF' title='Fenêtre PDF B' block='B' />
+        <div className='administration__title'>
+          <h1 className='info'>Tableau de bord</h1>
+        </div>
+        <div className='administration__content'>
+          <DashboardLayout type='hero' title='Accueil' />
+          <DashboardLayout type='PDF' title='Fenêtre PDF A' block='A' />
+          <DashboardLayout type='PDF' title='Fenêtre PDF B' block='B' />
+        </div>
       </div>
     </>
   );

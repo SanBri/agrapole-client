@@ -1,0 +1,12 @@
+.administration {
+  padding-bottom: 2rem;
+  &__title {
+    @include margin-between-blocks();
+    color: $color-primary;
+  }
+  &__content {
+    .card {
+      @include margin-between-blocks();
+    }
+  }
+}
