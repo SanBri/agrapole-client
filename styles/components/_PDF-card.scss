@@ -53,3 +53,10 @@
     height: 15rem;
   }
 }
+
+/* SMARTPHONE */
+@media all and (max-width: $breakpoint-smartphone) {
+  .PDF-card {
+    margin-bottom: 0.5rem;
+  }
+}
