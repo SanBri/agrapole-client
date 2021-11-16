@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import _ from "lodash";
 
 import { addPDFFile, addPDFCard, getPDFCard } from "../actions/PDFCard";
 import { setAlert } from "../actions/alert";
@@ -53,8 +54,9 @@ const PDFCardForm = ({
   const { title, PDF } = formData;
 
   const onChange = (e) => {
+    let singleFileName;
+    let newFileName;
     if (e.target.name === "sampleFile") {
-      let newFileName;
       fileInput.files[0] && fileInput.files[0].type != "application/pdf"
         ? (dispatch(
             setAlert(
@@ -64,11 +66,14 @@ const PDFCardForm = ({
             )
           ),
           (fileInput.value = null))
-        : (newFileName = fileInput.value.split("\\").pop());
-      setFormData({
-        ...formData,
-        PDF: newFileName,
-      });
+        : fileInput.files[0] &&
+          ((newFileName = _.random([1], [9999]) + "_"), // Generate random number in case of identic file name
+          (singleFileName = fileInput.value.split("\\").pop()), // Delete path in file name
+          (newFileName += singleFileName.split(" ").join("_")), // Replace space by "_" in file name and concatenate random number with file name
+          setFormData({
+            ...formData,
+            PDF: newFileName,
+          }));
     } else {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
@@ -77,7 +82,9 @@ const PDFCardForm = ({
   const onSubmit = (e) => {
     e.preventDefault();
     setLoading(!loading);
-    fileInput.files[0] && dispatch(addPDFFile(fileInput.files[0]));
+    !id
+      ? dispatch(addPDFFile(fileInput.files[0], formData.PDF))
+      : dispatch(addPDFFile(fileInput.files[0], formData.PDF, id));
     !id
       ? dispatch(addPDFCard(formData, null, blockID))
       : dispatch(addPDFCard(formData, id, blockID, true));
