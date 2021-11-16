@@ -1,7 +1,6 @@
 import axios from "axios";
 
-import { GET_HERO, EDIT_HERO, HERO_ERROR, LOAD_PDFCARDS } from "./types";
-
+import { GET_HERO, EDIT_HERO, HERO_ERROR } from "./types";
 import { setAlert } from "./alert";
 
 // Get Hero
