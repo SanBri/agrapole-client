@@ -57,7 +57,7 @@ const PDFCard = ({
         <>
           <h5>{title}</h5>
           <Link href={link}>
-            <a>
+            <a target='_blank' rel='noopener noreferrer'>
               <Button className='pdf-button' text='Voir le PDF' />
             </a>
           </Link>

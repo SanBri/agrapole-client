@@ -56,6 +56,7 @@ const DashboardLayout = ({ type, title, block }) => {
                     key={e._id}
                     block={block}
                     id={e._id}
+                    link={`/${e._id}`}
                     title={e.title}
                     blockID={id}
                     admin={true}
