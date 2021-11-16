@@ -4,15 +4,7 @@ import Error from "../components/common/Error";
 const PDFPage = ({ pdfCard }) => {
   const url = `${process.env.URL}/pdfCards/pdfFile/${pdfCard.PDF}`;
 
-  return (
-    <>
-      {!pdfCard.msg ? (
-        <PDFViewer url={url} />
-      ) : (
-        <Error text="Ce fichier PDF n'existe pas" />
-      )}
-    </>
-  );
+  return <>{!pdfCard.msg ? <PDFViewer url={url} /> : <Error error='404' />}</>;
 };
 
 export const getStaticPaths = async () => {

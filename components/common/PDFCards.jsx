@@ -26,6 +26,7 @@ const PDFCards = ({ block }) => {
             block={block}
             id={pdfCard._id}
             title={pdfCard.title}
+            link={`/${pdfCard._id}`}
           />
         ))
       ) : (

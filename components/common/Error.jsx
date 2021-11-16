@@ -3,14 +3,14 @@ import Link from "next/link";
 import Card from "./Card";
 import Button from "./Button";
 
-const Error = ({ text, link = "/" }) => {
+const Error = ({ error, text = "Cette page n'existe pas", link = "/" }) => {
   return (
     <Card>
       <div className='error'>
         <div className='error__text'>
-          <h5>
-            <span className='colored'>Erreur</span> : {text}
-          </h5>
+          <h4>
+            <span className='colored'>Erreur {error}</span> : {text}
+          </h4>
         </div>
         <div className='error__button'>
           <Link href={link}>
