@@ -1,5 +1,17 @@
 .error {
   &__text {
+    text-align: center;
     margin-bottom: 1rem;
+    padding: 1rem;
+  }
+}
+
+/* SMARTPHONE */
+@media all and (max-width: $breakpoint-smartphone) {
+  .error {
+    &__text {
+      width: 10rem;
+      padding: 0;
+    }
   }
 }
