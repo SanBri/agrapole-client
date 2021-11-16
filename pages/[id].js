@@ -1,9 +1,18 @@
 import PDFViewer from "../components/PDFViewer";
+import Error from "../components/common/Error";
 
 const PDFPage = ({ pdfCard }) => {
   const url = `${process.env.URL}/pdfCards/pdfFile/${pdfCard.PDF}`;
 
-  return <>{pdfCard && <PDFViewer url={url} />}</>;
+  return (
+    <>
+      {!pdfCard.msg ? (
+        <PDFViewer url={url} />
+      ) : (
+        <Error text="Ce fichier PDF n'existe pas" />
+      )}
+    </>
+  );
 };
 
 export const getStaticPaths = async () => {
