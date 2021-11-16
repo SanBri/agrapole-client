@@ -52,3 +52,29 @@
     }
   }
 }
+
+/* SMARTPHONE */
+@media all and (max-width: $breakpoint-smartphone) {
+  .contact {
+    width: 100%;
+    &__content {
+      width: 100vw;
+      height: 25rem;
+      &-image {
+        display: none;
+        width: 50%;
+        height: 22rem;
+        position: absolute;
+      }
+      &-text {
+        width: 95%;
+        height: 100%;
+        padding: 1rem;
+        position: absolute;
+        transform: translate(-50%);
+        // margin: auto;
+        right: 0;
+      }
+    }
+  }
+}

@@ -18,14 +18,14 @@ export default function Home() {
 
       <Layout>
         <Hero></Hero>
-        <HalfBlocks>
+        <HalfBlocks id='halfBlockA'>
           <PDFCards block='A' />
           <div className='half-blocks__image img-right'>
             <img src='/right.jfif' width='100%' />
           </div>
         </HalfBlocks>
         <Slider />
-        <HalfBlocks>
+        <HalfBlocks id='halfBlockB'>
           <div className='half-blocks__image img-left'>
             <img src='/left.jpg' width='100%' />
           </div>

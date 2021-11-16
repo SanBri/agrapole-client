@@ -77,3 +77,30 @@
     height: 13rem;
   }
 }
+
+/* SMARTPHONE */
+@media all and (max-width: $breakpoint-smartphone) {
+  .hero {
+    width: 100%;
+    height: 100vh;
+    padding: 0.5rem;
+    text-align: center;
+    &__title {
+      width: 100%;
+    }
+    &__content {
+      width: 100%;
+    }
+  }
+  #heroForm {
+    margin-top: 0.5rem;
+    input,
+    textarea {
+      width: 16rem;
+      padding: 0.5rem;
+    }
+    textarea {
+      height: 8rem;
+    }
+  }
+}

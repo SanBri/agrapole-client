@@ -3,8 +3,6 @@
   flex-direction: row;
   height: 33rem;
   &__cards {
-    // opacity: 0;
-    // animation: right-slide-apparition 1s 0.8s forwards;
     width: 45%;
     height: 23rem;
     display: flex;
@@ -25,7 +23,6 @@
     overflow: hidden;
     img {
       border-radius: 2%;
-
       box-shadow: $all-shadow;
     }
   }
@@ -46,5 +43,36 @@
       padding: 0.5rem;
       height: 18rem;
     }
+  }
+}
+
+/* SMARTPHONE */
+@media all and (max-width: $breakpoint-smartphone) {
+  .half-blocks {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    &__cards {
+      background-color: $background-prim;
+      width: 100%;
+      height: auto;
+      box-shadow: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0.5rem;
+    }
+    &__image {
+      margin: 0;
+      padding: 0.5rem;
+      width: 100%;
+      height: auto;
+    }
+  }
+  #halfBlockB {
+    margin-bottom: 2rem;
   }
 }

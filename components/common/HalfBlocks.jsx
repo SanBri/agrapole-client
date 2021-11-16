@@ -1,7 +1,9 @@
-const HalfBlocks = ({ children }) => {
+const HalfBlocks = ({ children, id }) => {
   return (
     <section>
-      <div className='half-blocks'>{children}</div>
+      <div id={id} className='half-blocks'>
+        {children}
+      </div>
     </section>
   );
 };
