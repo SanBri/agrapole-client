@@ -51,6 +51,7 @@ const Input = ({
         id={id}
         value={value}
         onChange={onChange}
+        maxLength={maxLength}
       />
     );
   }

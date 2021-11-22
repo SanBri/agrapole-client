@@ -2,15 +2,18 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-import Card from "../common/Card";
-import Spinner from "../common/Spinner";
-import Hero from "../Hero";
-import PDFCard from "./PDFCard";
-import PDFCardForm from "../PDFCardForm";
-import Alert from "../layout/Alert";
 import { getHero } from "../../actions/hero";
 import { getPDFCards } from "../../actions/PDFCard";
+import { getPartners } from "../../actions/partner";
+import Card from "../common/Card";
+import Spinner from "../common/Spinner";
+import Alert from "../layout/Alert";
+import Button from "./Button";
+import Hero from "../Hero";
 import HeroForm from "../HeroForm";
+import PDFCard from "./PDFCard";
+import PDFCardForm from "../PDFCardForm";
+import PartnerForm from "../PartnerForm";
 
 const DashboardLayout = ({ type, title, block }) => {
   const dispatch = useDispatch();
@@ -24,6 +27,8 @@ const DashboardLayout = ({ type, title, block }) => {
     ? (action = getPDFCards(block, id))
     : type === "hero"
     ? (action = getHero())
+    : type == "partner"
+    ? (action = getPartners())
     : "";
 
   useEffect(() => {
@@ -39,6 +44,9 @@ const DashboardLayout = ({ type, title, block }) => {
     : type === "hero"
     ? ((data = useSelector((state) => state.heroReducer.hero)),
       (loading = useSelector((state) => state.heroReducer.loading)))
+    : type === "partner"
+    ? ((data = useSelector((state) => state.partnerReducer.partners)),
+      (loading = useSelector((state) => state.partnerReducer.loading)))
     : "";
 
   return (
@@ -76,6 +84,26 @@ const DashboardLayout = ({ type, title, block }) => {
           <>
             <Hero admin />
             <HeroForm blockID={id} />
+          </>
+        ) : type === "partner" ? (
+          <>
+            {data.length > 0 ? (
+              <div className='dashboard-layout__partners'>
+                {data.map((e) => (
+                  <div key={e._id} className='partner'>
+                    <h6>{e.name}</h6>
+                    <Button
+                      className='delete'
+                      text='Supprimer'
+                      // onClick={(e) => deletePDFCardClick()}
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p>Il n'y a aucun partenaire</p>
+            )}
+            <PartnerForm blockID={id} />
           </>
         ) : (
           ""
