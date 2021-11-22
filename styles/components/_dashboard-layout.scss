@@ -8,12 +8,39 @@
       margin: 5px;
     }
   }
+  &__partners {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    & .partner {
+      width: 20rem;
+      height: 5rem;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      border: solid 1px $color-primary;
+    }
+  }
 }
-.addPDFButton {
-  width: 10rem;
-  background-color: $color-primary;
-  font-weight: bold;
-  margin: 1rem auto;
+
+#heroForm {
+  margin-top: 0.5rem;
+  input,
+  textarea {
+    width: 30rem;
+    padding: 0.5rem;
+  }
+  textarea {
+    height: 13rem;
+  }
+}
+
+#partnerForm {
+  input {
+    width: 16rem;
+  }
 }
 
 /* PETIT ECRAN */
@@ -23,6 +50,22 @@
       & .PDF-card {
         margin: 2px;
       }
+    }
+  }
+}
+
+/* SMARTPHONE */
+@media all and (max-width: $breakpoint-smartphone) {
+  #heroForm,
+  #partnerForm {
+    margin-top: 0.5rem;
+    input,
+    textarea {
+      width: 16rem;
+      padding: 0.5rem;
+    }
+    textarea {
+      height: 8rem;
     }
   }
 }

@@ -17,6 +17,12 @@
   }
 }
 
+.add {
+  width: 11rem;
+  background-color: $color-primary;
+  font-weight: bold;
+  margin: 1rem auto;
+}
 .edit {
   background-color: $color-edit;
   box-shadow: 0 0 0 $color-edit;

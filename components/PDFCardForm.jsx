@@ -104,7 +104,7 @@ const PDFCardForm = ({
       {!inPDFCard &&
         (!maximumPDFCards && !loading ? (
           <Button
-            className='addPDFButton'
+            className='add'
             text={addButtonText}
             onClick={(e) => toggleshowAddPDFCard(!showAddPDFCard)}
           ></Button>

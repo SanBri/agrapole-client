@@ -67,18 +67,6 @@
   }
 }
 
-#heroForm {
-  margin-top: 0.5rem;
-  input,
-  textarea {
-    width: 30rem;
-    padding: 0.5rem;
-  }
-  textarea {
-    height: 13rem;
-  }
-}
-
 /* SMARTPHONE */
 @media all and (max-width: $breakpoint-smartphone) {
   .hero {
@@ -91,17 +79,6 @@
     }
     &__content {
       width: 100%;
-    }
-  }
-  #heroForm {
-    margin-top: 0.5rem;
-    input,
-    textarea {
-      width: 16rem;
-      padding: 0.5rem;
-    }
-    textarea {
-      height: 8rem;
     }
   }
 }
