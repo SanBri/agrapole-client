@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { getHero } from "../../actions/hero";
 import { getPDFCards } from "../../actions/PDFCard";
-import { getPartners } from "../../actions/partner";
+import { getPartners, deletePartner } from "../../actions/partner";
 import Card from "../common/Card";
 import Spinner from "../common/Spinner";
 import Alert from "../layout/Alert";
@@ -49,6 +49,19 @@ const DashboardLayout = ({ type, title, block }) => {
       (loading = useSelector((state) => state.partnerReducer.loading)))
     : "";
 
+  const deletePartnerClick = (partnerID, partnerName) => {
+    if (
+      window.confirm(
+        `Voulez-vous vraiment supprimer définitivement le partenaire "${partnerName}" ?`
+      )
+    ) {
+      dispatch(deletePartner(partnerID, id));
+      // setTimeout(() => {
+      //   router.reload("/dashboard");
+      // }, 1000);
+    }
+  };
+
   return (
     <>
       <Card title={title}>
@@ -89,13 +102,15 @@ const DashboardLayout = ({ type, title, block }) => {
           <>
             {data.length > 0 ? (
               <div className='dashboard-layout__partners'>
-                {data.map((e) => (
-                  <div key={e._id} className='partner'>
-                    <h6>{e.name}</h6>
+                {data.map((partner) => (
+                  <div key={partner._id} className='partner'>
+                    <h6>{partner.name}</h6>
                     <Button
                       className='delete'
                       text='Supprimer'
-                      // onClick={(e) => deletePDFCardClick()}
+                      onClick={(e) =>
+                        deletePartnerClick(partner._id, partner.name)
+                      }
                     />
                   </div>
                 ))}

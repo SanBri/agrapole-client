@@ -1,28 +1,22 @@
+import Link from "next/link";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
+import { getPartners } from "../actions/partner";
+
+import Button from "./common/Button";
+
 const Slider = () => {
-  const baseUrl = "http://react-responsive-carousel.js.org/assets/";
-  const data = [
-    {
-      id: 1,
-      image: `${baseUrl}1.jpeg`,
-      title: `Partenaire n°1`,
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nobis unde quisquam cumque culpa facilis fugit error aliquid dolores, ex dicta quia aut at in repudiandae dolorem, omnis quibusdam laudantium.",
-    },
-    {
-      id: 2,
-      image: `${baseUrl}2.jpeg`,
-      title: `Partenaire n°2`,
-      text: "Consequuntur nobis unde quisquam cumque culpa facilis fugit error aliquid dolores, ex dicta quia aut at in repudiandae dolorem, omnis quibusdam laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    },
-    {
-      id: 3,
-      image: `${baseUrl}3.jpeg`,
-      title: `Partenaire n°3`,
-      text: "Omnis quibusdam laudantium, lorem ipsum dolor sit amet consectetur adipisicing elit. Ex dicta quia aut at in repudiandae dolorem, Consequuntur nobis unde quisquam cumque culpa facilis fugit error aliquid dolores.",
-    },
-  ];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPartners());
+  }, [dispatch]);
+
+  const data = useSelector((state) => state.partnerReducer.partners);
+
   return (
     <section>
       <div className='slider'>
@@ -37,10 +31,21 @@ const Slider = () => {
             showThumbs={false}
             showStatus={false}
           >
-            {data.map((slide) => (
-              <div key={slide.id}>
-                <h2 className='slide__title'>{slide.title}</h2>
-                <p className='slide__text'>{slide.text}</p>
+            {data.map((e) => (
+              <div className='slide-content' key={e._id}>
+                {e.image && <img src='./logo.png' width={50} height={50} />}
+                <div className='slide-content__title'>
+                  <h2>{e.name}</h2>
+                </div>
+                {e.url && (
+                  <Link href={`https://${e.url}`}>
+                    <a target='_blank' rel='noopener noreferrer'>
+                      <div className='slide-content__button'>
+                        <Button text='Site Web' />
+                      </div>
+                    </a>
+                  </Link>
+                )}
               </div>
             ))}
           </Carousel>

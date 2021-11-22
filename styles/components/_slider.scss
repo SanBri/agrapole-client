@@ -22,12 +22,14 @@
         text-align: center;
         background-color: $color-primary;
         color: #fff;
-        &__title {
-          margin: 0.8rem 0 1rem 0;
-        }
-        &__text {
-          margin: auto;
-          width: 50rem;
+        &-content {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          padding: 2rem;
+          &__title {
+            margin: 1rem 0 2rem 0;
+          }
         }
       }
     }
@@ -53,14 +55,9 @@
         max-width: 100%;
       }
       .slide {
-        &__text {
-          padding: 0;
-          width: 0;
-          margin-right: 2rem;
-          height: 10rem;
-          & p {
-            text-align: center;
-          }
+        &__content {
+          display: flex;
+          flex-direction: row;
         }
       }
     }

@@ -18,16 +18,23 @@ const PartnerForm = ({ blockID }) => {
 
   const [formData, setFormData] = useState(initialState);
 
-  const { name, image, url } = formData;
+  const { name, url } = formData;
+  let simpleURL;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === "url") {
+      simpleURL = urlPartnerForm.value.split("//").pop();
+      setFormData({ ...formData, url: simpleURL });
+    }
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
     toggleShowAddPartner(!showAddPartner);
-    dispatch(addPartner(formData, blockID));
+    console.log(simpleURL);
+    console.log(formData);
+    // dispatch(addPartner(formData, blockID));
     setFormData(initialState);
   };
 
@@ -66,11 +73,11 @@ const PartnerForm = ({ blockID }) => {
             onChange={(e) => onChange(e)}
           />
           <Input
-            type='url'
+            id='urlPartnerForm'
+            type='text'
             name='url'
             label='Site Web du partenaire'
             placeholder='FORMAT : www.exemple.com'
-            pattern='www.*'
             value={url}
             onChange={(e) => onChange(e)}
             required={false}
