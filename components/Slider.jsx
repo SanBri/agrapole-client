@@ -23,33 +23,37 @@ const Slider = () => {
         <div className='slider__title'>
           <h2>Nos Partenaires</h2>
         </div>
-        <div className='slider__carousel'>
-          <Carousel
-            autoPlay
-            interval={2500}
-            infiniteLoop
-            showThumbs={false}
-            showStatus={false}
-          >
-            {data.map((e) => (
-              <div className='slide-content' key={e._id}>
-                {e.image && <img src='./logo.png' width={50} height={50} />}
-                <div className='slide-content__title'>
-                  <h2>{e.name}</h2>
+        {data.length > 0 ? (
+          <div className='slider__carousel'>
+            <Carousel
+              autoPlay
+              interval={2500}
+              infiniteLoop
+              showThumbs={false}
+              showStatus={false}
+            >
+              {data.map((e) => (
+                <div className='slide-content' key={e._id} id={e.key}>
+                  {e.image && <img src='./logo.png' width={50} height={50} />}
+                  <div className='slide-content__title'>
+                    <h2>{e.name}</h2>
+                  </div>
+                  {e.url && (
+                    <Link href={`https://${e.url}`}>
+                      <a target='_blank' rel='noopener noreferrer'>
+                        <div className='slide-content__button'>
+                          <Button text='Site Web' />
+                        </div>
+                      </a>
+                    </Link>
+                  )}
                 </div>
-                {e.url && (
-                  <Link href={`https://${e.url}`}>
-                    <a target='_blank' rel='noopener noreferrer'>
-                      <div className='slide-content__button'>
-                        <Button text='Site Web' />
-                      </div>
-                    </a>
-                  </Link>
-                )}
-              </div>
-            ))}
-          </Carousel>
-        </div>
+              ))}
+            </Carousel>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </section>
   );
