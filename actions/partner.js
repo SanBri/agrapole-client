@@ -1,6 +1,11 @@
 import axios from "axios";
 
-import { GET_PARTNERS, ADD_PARTNER, PARTNERS_ERROR } from "./types";
+import {
+  GET_PARTNERS,
+  ADD_PARTNER,
+  PARTNERS_ERROR,
+  DELETE_PARTNER,
+} from "./types";
 
 import { setAlert } from "./alert";
 
@@ -53,6 +58,26 @@ export const addPartner = (formData, blockID) => async (dispatch) => {
       payload: {
         msg: err.response,
         status: err.response,
+      },
+    });
+  }
+};
+
+// Delete Partner
+export const deletePartner = (id, blockID) => async (dispatch) => {
+  try {
+    await axios.delete(`${process.env.URL}/partners/${id}`);
+    dispatch({
+      type: DELETE_PARTNER,
+      payload: id,
+    });
+    dispatch(setAlert("Le partenaire a bien été supprimé", "success", blockID));
+  } catch (err) {
+    dispatch({
+      type: PARTNERS_ERROR,
+      payload: {
+        msg: err.response.statusText,
+        status: err.response.status,
       },
     });
   }

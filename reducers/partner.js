@@ -1,4 +1,9 @@
-import { GET_PARTNERS, ADD_PARTNER, PARTNERS_ERROR } from "../actions/types";
+import {
+  GET_PARTNERS,
+  ADD_PARTNER,
+  PARTNERS_ERROR,
+  DELETE_PARTNER,
+} from "../actions/types";
 
 const initialState = {
   partners: [],
@@ -19,6 +24,13 @@ const partnerReducer = (state = initialState, action) => {
       return {
         ...state,
         partners: [...state.partners, payload],
+        loading: false,
+      };
+    case DELETE_PARTNER:
+      let partners = state.partners.filter((e) => e._id !== payload);
+      return {
+        ...state,
+        partners: partners,
         loading: false,
       };
     case PARTNERS_ERROR:

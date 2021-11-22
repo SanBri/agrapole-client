@@ -16,4 +16,5 @@ export const EDIT_HERO = "EDIT_HERO";
 export const HERO_ERROR = "HERO_ERROR";
 export const GET_PARTNERS = "GET_PARTNERS";
 export const ADD_PARTNER = "ADD_PARTNER";
+export const DELETE_PARTNER = "DELETE_PARTNER";
 export const PARTNERS_ERROR = "PARTNERS_ERROR";
