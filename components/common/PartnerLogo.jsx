@@ -1,9 +1,10 @@
-import axios from "axios";
-
 const PartnerLogo = ({ image, size }) => {
   let url = `http://localhost:5000/api/partners/logoFile/${image}`;
 
-  return <>{<img src={url} width={size} height={size} />}</>;
+  let inline = {};
+  size && ((inline.width = size), (inline.height = size));
+
+  return <>{<img src={url} style={inline} />}</>;
 };
 
 export default PartnerLogo;

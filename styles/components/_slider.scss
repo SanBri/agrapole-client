@@ -1,5 +1,5 @@
 .slider {
-  height: 25rem;
+  height: 30rem;
   @include margin-between-blocks();
   &__title {
     padding: 0.5rem;
@@ -13,7 +13,7 @@
     .carousel {
       box-shadow: $all-shadow;
       max-width: 50%;
-      height: 20rem;
+      height: 25rem;
       &-root {
         display: flex;
         justify-content: center;
@@ -23,12 +23,25 @@
         background-color: $color-primary;
         color: #fff;
         &-content {
-          height: 100%;
+          height: 10rem;
           display: flex;
           flex-direction: column;
-          padding: 2rem;
+          padding: 0.5rem;
+          &__image {
+            width: 18rem;
+            height: 15rem;
+            margin: 0 auto;
+            & img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
           &__title {
-            margin: 1rem 0 2rem 0;
+            margin: 0.5rem;
+          }
+          &__button {
+            margin: 0;
           }
         }
       }
@@ -43,7 +56,6 @@
     margin: 0;
     margin-bottom: 0.5rem;
     padding: 0 0.5rem;
-    height: 23rem;
     &__title {
       padding: 0;
       max-width: 100%;
@@ -61,10 +73,5 @@
         }
       }
     }
-  }
-  .carousel .slide img {
-    width: 100vw !important;
-    height: 40vh;
-    object-fit: cover;
   }
 }
