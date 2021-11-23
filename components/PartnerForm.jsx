@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import _ from "lodash";
 
-import { addPartner } from "../actions/partner";
+import { addPartner, addLogoFile } from "../actions/partner";
+import { setAlert } from "../actions/alert";
 import Button from "./common/Button";
 import Input from "./common/Input";
 
@@ -21,20 +23,44 @@ const PartnerForm = ({ blockID }) => {
   const { name, url } = formData;
   let simpleURL;
 
+  const types = ["image/jpeg", "image/png"];
+
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    let singleFileName;
+    let newFileName;
     if (e.target.name === "url") {
       simpleURL = urlPartnerForm.value.split("//").pop();
       setFormData({ ...formData, url: simpleURL });
+    } else if (e.target.name === "sampleFile") {
+      console.log(logoInput.files[0].type);
+      logoInput.files[0] &&
+        (!types.includes(logoInput.files[0].type) // To check if the extension is valid
+          ? (dispatch(
+              setAlert(
+                "Veuillez importer une image (jpeg ou png)",
+                "danger",
+                blockID
+              )
+            ),
+            (logoInput.value = null))
+          : (newFileName = _.random([1], [9999]) + "_"), // Generate random number in case of identic file name
+        (singleFileName = logoInput.value.split("\\").pop()), // Delete path in file name
+        (newFileName += singleFileName.split(" ").join("_")), // Replace space by "_" in file name and concatenate random number with file name
+        setFormData({
+          ...formData,
+          image: newFileName,
+        }));
+      console.log(logoInput.files[0]);
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
     }
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
     toggleShowAddPartner(!showAddPartner);
-    console.log(simpleURL);
-    console.log(formData);
-    // dispatch(addPartner(formData, blockID));
+    dispatch(addLogoFile(logoInput.files[0], formData.image));
+    dispatch(addPartner(formData, blockID));
     setFormData(initialState);
   };
 
@@ -85,7 +111,7 @@ const PartnerForm = ({ blockID }) => {
           />
           <Input
             name='sampleFile'
-            id='fileInput'
+            id='logoInput'
             label='Logo du partenaire'
             type='file'
             onChange={(e) => onChange(e)}

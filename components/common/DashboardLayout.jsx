@@ -14,6 +14,7 @@ import HeroForm from "../HeroForm";
 import PDFCard from "./PDFCard";
 import PDFCardForm from "../PDFCardForm";
 import PartnerForm from "../PartnerForm";
+import PartnerLogo from "../common/PartnerLogo";
 
 const DashboardLayout = ({ type, title, block }) => {
   const dispatch = useDispatch();
@@ -56,16 +57,12 @@ const DashboardLayout = ({ type, title, block }) => {
       )
     ) {
       dispatch(deletePartner(partnerID, id));
-      // setTimeout(() => {
-      //   router.reload("/dashboard");
-      // }, 1000);
     }
   };
 
   return (
     <>
       <Card title={title}>
-        <Alert blockID={id} />
         {loading || !data ? (
           <Spinner />
         ) : type === "PDF" ? (
@@ -104,25 +101,37 @@ const DashboardLayout = ({ type, title, block }) => {
               <div className='dashboard-layout__partners'>
                 {data.map((partner) => (
                   <div key={partner._id} className='partner'>
-                    <h6>{partner.name}</h6>
-                    <Button
-                      className='delete'
-                      text='Supprimer'
-                      onClick={(e) =>
-                        deletePartnerClick(partner._id, partner.name)
-                      }
-                    />
+                    <div className='partner__title'>
+                      <p className='bold'>{partner.name}</p>
+                    </div>
+
+                    {partner.image && (
+                      <div className='partner__logo'>
+                        <PartnerLogo image={partner.image} size={100} />
+                      </div>
+                    )}
+                    <div className='line'></div>
+                    <div className='partner__button'>
+                      <Button
+                        className='delete'
+                        text='Supprimer'
+                        onClick={(e) =>
+                          deletePartnerClick(partner._id, partner.name)
+                        }
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
             ) : (
-              <p>Il n'y a aucun partenaire</p>
+              <p style={{ textAlign: "center" }}>Il n'y a aucun partenaire</p>
             )}
             <PartnerForm blockID={id} />
           </>
         ) : (
           ""
         )}
+        <Alert blockID={id} />
       </Card>
     </>
   );

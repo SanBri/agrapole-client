@@ -7,6 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import { getPartners } from "../actions/partner";
 
 import Button from "./common/Button";
+import PartnerLogo from "./common/PartnerLogo";
 
 const Slider = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,11 @@ const Slider = () => {
             >
               {data.map((e) => (
                 <div className='slide-content' key={e._id} id={e.key}>
-                  {e.image && <img src='./logo.png' width={50} height={50} />}
+                  {e.image && (
+                    <div className='slide-content__image'>
+                      <PartnerLogo image={e.image} size={"100%"} />
+                    </div>
+                  )}
                   <div className='slide-content__title'>
                     <h2>{e.name}</h2>
                   </div>
