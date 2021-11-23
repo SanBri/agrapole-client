@@ -82,3 +82,22 @@ export const deletePartner = (id, blockID) => async (dispatch) => {
     });
   }
 };
+
+// Post Logo Partner :
+export const addLogoFile = (logoFile, newFileName) => async () => {
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  };
+  if (logoFile) {
+    let logoFileObject = new FormData();
+    logoFileObject.append("logoFile", logoFile);
+    logoFileObject.append("newFileName", newFileName);
+    await axios.post(
+      `${process.env.URL}/partners/logoFile/`,
+      logoFileObject,
+      config
+    );
+  }
+};
