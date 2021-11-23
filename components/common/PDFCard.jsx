@@ -65,7 +65,7 @@ const PDFCard = ({
       )}
       {admin && (
         <>
-          <div className='PDF-card__line'></div>
+          <div className='line'></div>
           <div className='PDF-card__admin'>
             <Button
               className='edit'
