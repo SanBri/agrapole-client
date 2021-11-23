@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Provider } from "react-redux";
 import { useEffect } from "react";
 
@@ -18,6 +19,12 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
+      <Head>
+        <script
+          src='https://kit.fontawesome.com/556a7dddee.js'
+          crossOrigin='anonymous'
+        />
+      </Head>
       <Component {...pageProps} />
     </Provider>
   );
