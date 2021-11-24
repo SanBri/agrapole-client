@@ -11,7 +11,7 @@
   &__content {
     .card {
       max-width: 60%;
-      height: 15rem;
+      height: 20rem;
       margin: 2rem auto;
       padding: 0;
       display: flex;
@@ -25,6 +25,34 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+      }
+      & input {
+        width: 16rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+/* SMARTPHONE */
+@media all and (max-width: $breakpoint-smartphone) {
+  .settings {
+    &__title {
+      width: 20rem;
+      margin: auto;
+    }
+    &__content {
+      .card {
+        max-width: 90%;
+        height: auto;
+        margin: 1rem auto;
+        padding: 1rem;
+        &__content {
+          flex-direction: column;
+        }
+        & input {
+          width: 16rem;
+        }
       }
     }
   }
