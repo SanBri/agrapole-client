@@ -1,0 +1,36 @@
+.nav-bar {
+  display: flex;
+  z-index: 9999;
+  position: fixed;
+  width: 20rem;
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  & a {
+    margin-right: 0.5rem;
+  }
+  & .button {
+    opacity: 0.4;
+    width: 8rem;
+  }
+}
+
+/* SMARTPHONE */
+@media all and (max-width: $breakpoint-smartphone) {
+  .nav-bar {
+    position: relative;
+    width: 20rem;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 1rem;
+    & a {
+      margin-right: 0.5rem;
+    }
+    & .button {
+      opacity: 0.7;
+    }
+  }
+  .end {
+    padding-top: 0;
+    margin-top: 0;
+  }
+}

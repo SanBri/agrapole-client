@@ -22,9 +22,16 @@ a {
   margin: 0 auto;
 }
 
+.smartphone-only {
+  display: none;
+}
+
 /* SMARTPHONE */
 @media all and (max-width: $breakpoint-smartphone) {
   .line {
     display: none;
+  }
+  .smartphone-only {
+    display: block;
   }
 }

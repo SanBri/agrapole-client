@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import PrivatePage from "../components/layout/PrivatePage";
 import DashboardLayout from "../components/common/DashboardLayout";
+import NavBar from "../components/layout/NavBar";
 
 const dashboard = () => {
   return (
@@ -9,6 +10,7 @@ const dashboard = () => {
       <Head>
         <title>FRSEA AuRA | Administration</title>
       </Head>
+      <NavBar />
       <div className='administration'>
         <div className='administration__title'>
           <h1 className='info'>Tableau de bord</h1>
@@ -19,6 +21,9 @@ const dashboard = () => {
           <DashboardLayout type='partner' title='Partenaires' />
           <DashboardLayout type='PDF' title='Fenêtre PDF B' block='B' />
         </div>
+      </div>
+      <div className='smartphone-only'>
+        <NavBar position='end' />
       </div>
     </>
   );
