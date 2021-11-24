@@ -82,7 +82,7 @@ const DashboardLayout = ({ type, title, block }) => {
                 ))}
               </div>
             ) : (
-              <p>Il n'y a aucune carte PDF dans cette fenêtre</p>
+              <p>Il n'y a aucun fichier PDF dans cette fenêtre</p>
             )}
             <PDFCardForm
               maximumPDFCards={maximumPDFCards}

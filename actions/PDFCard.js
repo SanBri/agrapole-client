@@ -71,7 +71,9 @@ export const addPDFCard =
           type: ADD_PDFCARD,
           payload: res.data,
         });
-        dispatch(setAlert("La carte PDF a bien été créée", "success", blockID));
+        dispatch(
+          setAlert("La fichier PDF a bien été créé", "success", blockID)
+        );
       } else {
         await axios.put(`${process.env.URL}/pdfCards/${id}`, formData, config);
         dispatch(
@@ -113,7 +115,9 @@ export const deletePDFCard = (id, blockID) => async (dispatch) => {
     dispatch({
       type: LOAD_PDFCARDS,
     });
-    dispatch(setAlert("La carte PDF a bien été supprimée", "success", blockID));
+    dispatch(
+      setAlert("Le fichier PDF a bien été supprimé", "success", blockID)
+    );
   } catch (err) {
     dispatch({
       type: PDFCARDS_ERROR,
