@@ -7,7 +7,7 @@ const settings = () => {
     <SettingsLayout
       icon='fas fa-user-cog'
       title='Paramètres du Compte'
-      backLink='/dashboard'
+      backLink='/administration'
     >
       <LinkCard
         icn='fas fa-user-edit'
