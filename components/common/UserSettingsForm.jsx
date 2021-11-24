@@ -19,8 +19,6 @@ const UserSettingsForm = ({ type, title }) => {
 
   const [loading, setLoading] = useState(false);
 
-  console.log(user.mail);
-
   const [formData, setFormData] = useState({
     oldPassword: "",
     newPassword: "",
