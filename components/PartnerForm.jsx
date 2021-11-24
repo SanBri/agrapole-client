@@ -32,7 +32,6 @@ const PartnerForm = ({ blockID }) => {
       simpleURL = urlPartnerForm.value.split("//").pop();
       setFormData({ ...formData, url: simpleURL });
     } else if (e.target.name === "sampleFile") {
-      console.log(logoInput.files[0].type);
       logoInput.files[0] &&
         (!types.includes(logoInput.files[0].type) // To check if the extension is valid
           ? (dispatch(
@@ -50,7 +49,6 @@ const PartnerForm = ({ blockID }) => {
           ...formData,
           image: newFileName,
         }));
-      console.log(logoInput.files[0]);
     } else {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
