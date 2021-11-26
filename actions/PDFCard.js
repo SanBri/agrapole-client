@@ -139,24 +139,22 @@ export const addPDFFile =
       },
     };
     if (PDFFile) {
+      if (id) {
+        dispatch(deletePDFFile(id));
+      }
       let PDFFileObject = new FormData();
       PDFFileObject.append("pdfFile", PDFFile);
       PDFFileObject.append("newFileName", newFileName);
-      if (!id) {
-        await axios.post(
-          `${process.env.URL}/pdfCards/pdfFile/`,
-          PDFFileObject,
-          config
-        );
-      } else {
-        await axios.put(
-          `${process.env.URL}/pdfCards/pdfFile/${id}`,
-          PDFFileObject,
-          config
-        );
-      }
+      await axios.post(`${process.env.URL}/pdfFiles/`, PDFFileObject, config);
     }
     dispatch({
       type: LOAD_PDFCARDS,
     });
   };
+
+// DELETE PDF FILE (HEROKU BUG) :
+export const deletePDFFile = (id) => async () => {
+  if (id) {
+    await axios.delete(`${process.env.URL}/pdfFiles/${id}`);
+  }
+};
