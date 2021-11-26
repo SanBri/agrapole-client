@@ -2,7 +2,7 @@ import PDFViewer from "../components/PDFViewer";
 import Error from "../components/common/Error";
 
 const PDFPage = ({ pdfCard }) => {
-  const url = `${process.env.URL}/pdfCards/pdfFile/${pdfCard.PDF}`;
+  const url = `${process.env.URL}/pdfFiles/${pdfCard.PDF}`;
 
   return <>{!pdfCard.msg ? <PDFViewer url={url} /> : <Error error='404' />}</>;
 };
