@@ -1,8 +1,10 @@
 .nav-bar {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   z-index: 9999;
   position: fixed;
-  width: 20rem;
+  width: 100%;
   margin-left: 0.5rem;
   padding: 0.5rem 1rem;
   & a {
@@ -12,25 +14,54 @@
     opacity: 0.4;
     width: 8rem;
   }
+  &__links {
+    display: flex;
+  }
+  &__logout {
+    margin-right: 0.5rem;
+  }
+}
+.right {
+  width: 100%;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  & .button {
+    width: 10rem;
+  }
 }
 
 /* SMARTPHONE */
 @media all and (max-width: $breakpoint-smartphone) {
   .nav-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 20rem;
-    justify-content: center;
-    margin: 0 auto;
-    padding-top: 1rem;
+    margin: auto;
+    padding-top: 2rem;
     & a {
       margin-right: 0.5rem;
     }
     & .button {
       opacity: 0.7;
     }
+    & .delete {
+      width: auto;
+      line-height: 1rem;
+      text-align: center;
+    }
   }
   .end {
     padding-top: 0;
     margin-top: 0;
+  }
+  .navIndex {
+    width: 100%;
+    margin-top: 2.5rem;
+    height: 1rem;
+    & .edit {
+      width: 10rem;
+    }
   }
 }
