@@ -9,6 +9,10 @@ const dashboard = () => {
     <>
       <Head>
         <title>FRSEA AuRA | Administration</title>
+        <script
+          src='https://kit.fontawesome.com/556a7dddee.js'
+          crossOrigin='anonymous'
+        />
       </Head>
       <NavBar />
       <div className='administration'>
