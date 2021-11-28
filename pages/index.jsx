@@ -45,7 +45,7 @@ export default function Home() {
           <PDFCards block='B' />
         </HalfBlocks>
         <Contact />
-        {smartPhone && (
+        {smartPhone && isAuthenticated && (
           <div className='smartphone-only navIndex'>
             <NavBar position='end' />
           </div>
