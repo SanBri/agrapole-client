@@ -13,12 +13,12 @@ const Hero = ({ admin = false }) => {
   const hero = useSelector((state) => state.heroReducer.hero);
   let { title, catchphrase, description } = hero;
 
-  if (title == null || catchphrase == null || description == null) {
-    (title = "FRSEA Auvergne-Rhône-Alpes"),
-      (catchphrase = "Formations Agricoles"),
-      (description =
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi labore inventore facilis. Ea nihil assumenda ipsam quam reiciendis aliquid sunt qui corporis in culpa molestiae doloremque rerum reprehenderit, minima quod.");
-  }
+  // if (title == null || catchphrase == null || description == null) {
+  //   (title = "FRSEA Auvergne-Rhône-Alpes"),
+  //     (catchphrase = "Promouvoir les métiers de l'Agriculture"),
+  //     (description =
+  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi labore inventore facilis. Ea nihil assumenda ipsam quam reiciendis aliquid sunt qui corporis in culpa molestiae doloremque rerum reprehenderit, minima quod.");
+  // }
 
   !admin
     ? (classDefinition = {
