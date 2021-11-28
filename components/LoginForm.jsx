@@ -33,7 +33,7 @@ const LoginForm = () => {
     document.getElementById("password").value = "";
   };
 
-  isAuthenticated && router.push("/dashboard");
+  isAuthenticated && router.push("/administration");
 
   return isAuthenticated !== true ? (
     <form id='loginForm' onSubmit={(e) => onSubmit(e)}>
