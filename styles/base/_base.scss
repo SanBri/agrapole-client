@@ -32,6 +32,8 @@ a {
     display: none;
   }
   .smartphone-only {
-    display: block;
+    width: 100%;
+    height: 4rem;
+    display: flex;
   }
 }

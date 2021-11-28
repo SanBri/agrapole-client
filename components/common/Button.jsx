@@ -1,11 +1,11 @@
-const Button = ({ text, className, onClick }) => {
+const Button = ({ text, className, smartPhone, icn, onClick }) => {
   let classDefinition = `button`;
 
   className && (classDefinition += ` ${className}`);
 
   return (
     <div onClick={onClick} className={classDefinition}>
-      <p>{text}</p>
+      {!smartPhone ? <p>{text}</p> : <i className={icn}></i>}
     </div>
   );
 };

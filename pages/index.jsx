@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import Layout from "../components/layout/Layout";
 import Hero from "../components/Hero";
@@ -6,8 +8,18 @@ import HalfBlocks from "../components/common/HalfBlocks";
 import Slider from "../components/Slider";
 import Contact from "../components/Contact";
 import PDFCards from "../components/common/PDFCards";
+import NavBar from "../components/layout/NavBar";
 
 export default function Home() {
+  const isAuthenticated = useSelector(
+    (state) => state.authReducer.isAuthenticated
+  );
+
+  const [smartPhone, setSmartPhone] = useState(false);
+  useEffect(() => {
+    screen.width < 900 ? setSmartPhone(true) : "";
+  }, []);
+
   return (
     <>
       <Head>
@@ -17,6 +29,7 @@ export default function Home() {
       </Head>
 
       <Layout>
+        {isAuthenticated && !smartPhone ? <NavBar position='right' /> : ""}
         <Hero></Hero>
         <HalfBlocks id='halfBlockA'>
           <PDFCards block='A' />
@@ -32,6 +45,11 @@ export default function Home() {
           <PDFCards block='B' />
         </HalfBlocks>
         <Contact />
+        {smartPhone && (
+          <div className='smartphone-only navIndex'>
+            <NavBar position='end' />
+          </div>
+        )}
       </Layout>
     </>
   );
