@@ -19,49 +19,47 @@ const Slider = () => {
   const data = useSelector((state) => state.partnerReducer.partners);
 
   return (
-    <section>
-      <div className='slider'>
-        <div className='slider__title'>
-          <h2>Nos Partenaires</h2>
-        </div>
-        {data.length > 0 ? (
-          <div className='slider__carousel'>
-            <Carousel
-              autoPlay
-              stopOnHover={false}
-              interval={2500}
-              infiniteLoop
-              showThumbs={false}
-              showStatus={false}
-            >
-              {data.map((e) => (
-                <div className='slide-content' key={e._id} id={e.key}>
-                  {e.image && (
-                    <div className='slide-content__image'>
-                      <PartnerLogo image={e.image} size={"100%"} />
-                    </div>
-                  )}
-                  <div className='slide-content__title'>
-                    <h2>{e.name}</h2>
-                  </div>
-                  {e.url && (
-                    <Link href={`https://${e.url}`}>
-                      <a target='_blank' rel='noopener noreferrer'>
-                        <div className='slide-content__button'>
-                          <Button text='Site Web' />
-                        </div>
-                      </a>
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </Carousel>
-          </div>
-        ) : (
-          ""
-        )}
+    <div className='slider'>
+      <div className='slider__title'>
+        <h2>Nos Partenaires</h2>
       </div>
-    </section>
+      {data.length > 0 ? (
+        <div className='slider__carousel'>
+          <Carousel
+            autoPlay
+            stopOnHover={false}
+            interval={2500}
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+          >
+            {data.map((e) => (
+              <div className='slide-content' key={e._id} id={e.key}>
+                {e.image && (
+                  <div className='slide-content__image'>
+                    <PartnerLogo image={e.image} size={"100%"} />
+                  </div>
+                )}
+                <div className='slide-content__title'>
+                  <h2>{e.name}</h2>
+                </div>
+                {e.url && (
+                  <Link href={`https://${e.url}`}>
+                    <a target='_blank' rel='noopener noreferrer'>
+                      <div className='slide-content__button'>
+                        <Button text='Site Web' />
+                      </div>
+                    </a>
+                  </Link>
+                )}
+              </div>
+            ))}
+          </Carousel>
+        </div>
+      ) : (
+        ""
+      )}
+    </div>
   );
 };
 
