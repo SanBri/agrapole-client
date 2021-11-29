@@ -5,6 +5,7 @@ import alertReducer from "./alert";
 import PDFCardReducer from "./PDFCard";
 import heroReducer from "./hero";
 import partnerReducer from "./partner";
+import gradeReducer from "./grade";
 
 export default combineReducers({
   authReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   PDFCardReducer,
   heroReducer,
   partnerReducer,
+  gradeReducer,
 });
