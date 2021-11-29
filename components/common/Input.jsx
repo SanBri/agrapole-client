@@ -9,6 +9,7 @@ const Input = ({
   maxLength,
   min,
   max,
+  step,
   className = "input",
   type = "text",
   required = true,
@@ -56,6 +57,7 @@ const Input = ({
         maxLength={maxLength}
         min={min}
         max={max}
+        step={step}
       />
     );
   }
