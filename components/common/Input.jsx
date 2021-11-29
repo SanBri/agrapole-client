@@ -7,6 +7,8 @@ const Input = ({
   id,
   value,
   maxLength,
+  min,
+  max,
   className = "input",
   type = "text",
   required = true,
@@ -52,6 +54,8 @@ const Input = ({
         value={value}
         onChange={onChange}
         maxLength={maxLength}
+        min={min}
+        max={max}
       />
     );
   }
