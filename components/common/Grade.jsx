@@ -26,15 +26,26 @@ const Grade = ({ admin = false }) => {
       });
 
   return (
-    <section>
-      <div className={classDefinition.global} id='grade'>
+    <div className={classDefinition.global} id='grade'>
+      {admin ? (
         <div className={classDefinition.content}>
           <h6>
             {title} : {average}/{scale}
           </h6>
         </div>
-      </div>
-    </section>
+      ) : (
+        <>
+          <div className={classDefinition.title}>
+            <h3>{title} :</h3>
+          </div>
+          <div className={classDefinition.content}>
+            <h3>
+              {average}/{scale}
+            </h3>
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 

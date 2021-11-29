@@ -35,6 +35,15 @@
   margin-left: 2rem;
 }
 
+.grade-and-partners {
+  padding: 0 8rem;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+}
 /* PETIT ECRAN */
 @media all and (max-width: $breakpoint-small-screen) {
   .half-blocks {
@@ -43,6 +52,9 @@
       padding: 0.5rem;
       height: 18rem;
     }
+  }
+  .grade-and-partners {
+    padding: 0 2rem;
   }
 }
 
@@ -74,5 +86,12 @@
   }
   #halfBlockB {
     margin-bottom: 1.5rem;
+  }
+  .grade-and-partners {
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 0;
   }
 }

@@ -30,8 +30,8 @@ export const editGrade = (formData, blockID) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    formData.average = parseInt(formData.average);
-    formData.scale = parseInt(formData.scale);
+    formData.average = parseFloat(formData.average);
+    formData.scale = parseFloat(formData.scale);
     let res = await axios.put(`${process.env.URL}/grade/`, formData, config);
     dispatch({
       type: EDIT_GRADE,

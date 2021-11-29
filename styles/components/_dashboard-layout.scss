@@ -56,6 +56,23 @@
   }
 }
 
+#gradeForm {
+  padding-top: 0.5rem;
+  & input {
+    width: 17rem;
+  }
+  .grade-form__numbers {
+    width: 12rem;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    & input {
+      width: 3rem;
+    }
+  }
+}
+
 /* PETIT ECRAN */
 @media all and (max-width: $breakpoint-small-screen) {
   .dashboard-layout {

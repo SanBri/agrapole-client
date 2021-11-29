@@ -84,27 +84,32 @@ const gradeForm = ({ blockID }) => {
             placeholder='Rédigez le titre'
             value={title}
             onChange={(e) => onChange(e)}
+            maxLength='40'
           />
-          <Input
-            type='number'
-            name='average'
-            label='Note Moyenne'
-            value={average}
-            min={0}
-            max={scale}
-            maxLength='3'
-            onChange={(e) => onChange(e)}
-          />
-          <Input
-            type='number'
-            name='scale'
-            label='Barème'
-            value={scale}
-            onChange={(e) => onChange(e)}
-            min='5'
-            max='100'
-            maxLength='3'
-          />
+          <div className='grade-form__numbers'>
+            <Input
+              type='number'
+              name='average'
+              label='Note Moyenne'
+              value={average}
+              min={0}
+              max={scale}
+              step='0.1'
+              maxLength='3'
+              onChange={(e) => onChange(e)}
+            />
+            /
+            <Input
+              type='number'
+              name='scale'
+              label='Barème'
+              value={scale}
+              onChange={(e) => onChange(e)}
+              min='5'
+              max='100'
+              maxLength='3'
+            />
+          </div>
           <Input type='submit' value='Enregistrer' />
         </form>
       ) : (
