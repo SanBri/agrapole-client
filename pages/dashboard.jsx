@@ -22,6 +22,7 @@ const dashboard = () => {
         <div className='administration__content'>
           <DashboardLayout type='hero' title='Accueil' />
           <DashboardLayout type='PDF' title='Fenêtre PDF A' block='A' />
+          <DashboardLayout type='grade' title='Note Moyenne' />
           <DashboardLayout type='partner' title='Partenaires' />
           <DashboardLayout type='PDF' title='Fenêtre PDF B' block='B' />
         </div>

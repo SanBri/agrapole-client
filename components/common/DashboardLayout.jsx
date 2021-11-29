@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { getHero } from "../../actions/hero";
 import { getPDFCards } from "../../actions/PDFCard";
+import { getGrade } from "../../actions/grade";
 import { getPartners, deletePartner } from "../../actions/partner";
 import Card from "../common/Card";
 import Spinner from "../common/Spinner";
@@ -15,6 +16,8 @@ import PDFCard from "./PDFCard";
 import PDFCardForm from "../PDFCardForm";
 import PartnerForm from "../PartnerForm";
 import PartnerLogo from "../common/PartnerLogo";
+import Grade from "./Grade";
+import GradeForm from "../GradeForm";
 
 const DashboardLayout = ({ type, title, block }) => {
   const dispatch = useDispatch();
@@ -30,6 +33,8 @@ const DashboardLayout = ({ type, title, block }) => {
     ? (action = getHero())
     : type == "partner"
     ? (action = getPartners())
+    : type == "grade"
+    ? (action = getGrade())
     : "";
 
   useEffect(() => {
@@ -48,6 +53,9 @@ const DashboardLayout = ({ type, title, block }) => {
     : type === "partner"
     ? ((data = useSelector((state) => state.partnerReducer.partners)),
       (loading = useSelector((state) => state.partnerReducer.loading)))
+    : type === "grade"
+    ? ((data = useSelector((state) => state.gradeReducer.grade)),
+      (loading = useSelector((state) => state.gradeReducer.loading)))
     : "";
 
   const deletePartnerClick = (partnerID, partnerName) => {
@@ -127,6 +135,11 @@ const DashboardLayout = ({ type, title, block }) => {
               <p style={{ textAlign: "center" }}>Il n'y a aucun partenaire</p>
             )}
             <PartnerForm blockID={id} />
+          </>
+        ) : type === "grade" ? (
+          <>
+            <Grade admin />
+            <GradeForm blockID={id} />
           </>
         ) : (
           ""
