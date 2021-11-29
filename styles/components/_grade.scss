@@ -1,0 +1,26 @@
+.grade {
+  &__title {
+  }
+  &__content {
+  }
+}
+
+// Dashboard Section
+.grade-admin {
+  display: flex;
+  justify-content: center;
+  &__content {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+/* SMARTPHONE */
+@media all and (max-width: $breakpoint-smartphone) {
+  .grade {
+    &__title {
+    }
+    &__content {
+    }
+  }
+}
