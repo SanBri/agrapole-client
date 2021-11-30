@@ -28,7 +28,7 @@ const Slider = () => {
           <Carousel
             autoPlay
             stopOnHover={false}
-            interval={2500}
+            interval={3000}
             infiniteLoop
             showThumbs={false}
             showStatus={false}
