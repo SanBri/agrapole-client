@@ -40,6 +40,10 @@
 
 #heroForm {
   margin-top: 0.5rem;
+  width: auto;
+  label {
+    font-weight: bold;
+  }
   input,
   textarea {
     width: 30rem;
@@ -47,6 +51,14 @@
   }
   textarea {
     height: 13rem;
+  }
+  #fileInput {
+    width: auto;
+  }
+  text-align: center;
+  .line {
+    margin: 1rem auto;
+    height: 1.5px;
   }
 }
 

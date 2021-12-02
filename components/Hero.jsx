@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getHero } from "../actions/hero";
@@ -25,7 +26,6 @@ const Hero = ({ admin = false }) => {
         global: "hero",
         title: "hero__title",
         catchphrase: "hero__catchphrase",
-        content: "hero__content",
       })
     : (classDefinition = {
         global: "hero-admin",
@@ -45,10 +45,24 @@ const Hero = ({ admin = false }) => {
           {admin && <label>Sous-Titre actuel :</label>}
           <h3>{catchphrase}</h3>
         </div>
-        <div className={classDefinition.content}>
-          {admin && <label>Description actuelle :</label>}
-          <p>{description}</p>
-        </div>
+        {!admin ? (
+          <Link href={`/formations`}>
+            <a target='_blank' rel='noopener noreferrer'>
+              <div className='button'>
+                <h3>Trouvez une formation</h3>
+                <p className='bold'>Voir le programme</p>
+              </div>
+            </a>
+          </Link>
+        ) : (
+          <>
+            <div className='line'></div>
+            <div className={classDefinition.content}>
+              {admin && <label>"Qui sommes-nous ?" :</label>}
+              <p>{description}</p>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
