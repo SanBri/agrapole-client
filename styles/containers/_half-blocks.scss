@@ -58,8 +58,8 @@
   }
 }
 
-/* SMARTPHONE */
-@media all and (max-width: $breakpoint-smartphone) {
+/* MOBILE */
+@media all and (max-width: $breakpoint-mobile) {
   .half-blocks {
     width: 100%;
     height: auto;

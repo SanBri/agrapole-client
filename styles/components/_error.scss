@@ -6,8 +6,8 @@
   }
 }
 
-/* SMARTPHONE */
-@media all and (max-width: $breakpoint-smartphone) {
+/* MOBILE */
+@media all and (max-width: $breakpoint-mobile) {
   .error {
     &__text {
       width: 10rem;

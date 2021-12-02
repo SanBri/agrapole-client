@@ -53,8 +53,8 @@
   }
 }
 
-/* SMARTPHONE */
-@media all and (max-width: $breakpoint-smartphone) {
+/* MOBILE */
+@media all and (max-width: $breakpoint-mobile) {
   .contact {
     width: 100%;
     &__content {

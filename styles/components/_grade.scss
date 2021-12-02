@@ -27,8 +27,8 @@
   }
 }
 
-/* SMARTPHONE */
-@media all and (max-width: $breakpoint-smartphone) {
+/* MOBILE */
+@media all and (max-width: $breakpoint-mobile) {
   .grade {
     width: 20rem;
     height: 20rem;

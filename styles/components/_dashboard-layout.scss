@@ -102,8 +102,8 @@
   }
 }
 
-/* SMARTPHONE */
-@media all and (max-width: $breakpoint-smartphone) {
+/* MOBILE */
+@media all and (max-width: $breakpoint-mobile) {
   .dashboard-layout {
     &__partners {
       & .partner {

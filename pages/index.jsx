@@ -17,9 +17,9 @@ export default function Home() {
     (state) => state.authReducer.isAuthenticated
   );
 
-  const [smartPhone, setSmartPhone] = useState(false);
+  const [mobile, setMobile] = useState(false);
   useEffect(() => {
-    screen.width < 900 ? setSmartPhone(true) : "";
+    screen.width < 900 ? setMobile(true) : "";
   }, []);
 
   return (
@@ -31,7 +31,7 @@ export default function Home() {
       </Head>
 
       <Layout>
-        {isAuthenticated && !smartPhone ? <NavBar position='right' /> : ""}
+        {isAuthenticated && !mobile ? <NavBar position='right' /> : ""}
         <Hero></Hero>
         <About />
         <HalfBlocks id='halfBlockA'>
@@ -51,8 +51,8 @@ export default function Home() {
           <PDFCards block='B' />
         </HalfBlocks>
         <Contact />
-        {smartPhone && isAuthenticated && (
-          <div className='smartphone-only navIndex'>
+        {mobile && isAuthenticated && (
+          <div className='mobile-only navIndex'>
             <NavBar position='end' />
           </div>
         )}

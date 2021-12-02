@@ -48,8 +48,8 @@
   }
 }
 
-/* SMARTPHONE */
-@media all and (max-width: $breakpoint-smartphone) {
+/* MOBILE */
+@media all and (max-width: $breakpoint-mobile) {
   .PDF-card {
     margin-bottom: 0.5rem;
   }

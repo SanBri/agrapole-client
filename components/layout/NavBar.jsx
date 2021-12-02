@@ -19,11 +19,11 @@ const NavBar = ({ position }) => {
     dispatch(logout());
   };
 
-  const [smartPhone, setSmartPhone] = useState(false);
+  const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
     screen.width < 900 && router.pathname != "/administration"
-      ? setSmartPhone(true)
+      ? setMobile(true)
       : "";
   }, []);
 
@@ -55,7 +55,7 @@ const NavBar = ({ position }) => {
         <Button
           text='Déconnexion'
           icn='fas fa-sign-out-alt'
-          smartPhone={smartPhone}
+          mobile={mobile}
           className='delete'
           onClick={() => onLogoutClick()}
         />

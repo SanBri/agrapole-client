@@ -27,7 +27,7 @@ const dashboard = () => {
           <DashboardLayout type='PDF' title='Fenêtre PDF B' block='B' />
         </div>
       </div>
-      <div className='smartphone-only'>
+      <div className='mobile-only'>
         <NavBar position='end' />
       </div>
     </>
