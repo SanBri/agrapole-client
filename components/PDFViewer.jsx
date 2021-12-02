@@ -1,8 +1,8 @@
-const PDFViewer = ({ url }) => {
+const PDFViewer = ({ file }) => {
   return (
     <>
       <object
-        data={url}
+        data={`https://res.cloudinary.com/hcn0tdlxx/image/upload/v1638448380/frseaura/PDF/${file}`}
         type='application/pdf'
         width='100%'
         height='1000'
