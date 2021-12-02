@@ -1,5 +1,3 @@
-import Alert from "../layout/Alert";
-
 const Card = ({ title, children }) => {
   return (
     <div className='card'>
