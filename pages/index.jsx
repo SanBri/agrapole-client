@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 import Layout from "../components/layout/Layout";
 import Hero from "../components/Hero";
+import About from "../components/About";
 import HalfBlocks from "../components/common/HalfBlocks";
 import Grade from "../components/common/Grade";
 import Slider from "../components/Slider";
@@ -32,6 +33,7 @@ export default function Home() {
       <Layout>
         {isAuthenticated && !smartPhone ? <NavBar position='right' /> : ""}
         <Hero></Hero>
+        <About />
         <HalfBlocks id='halfBlockA'>
           <PDFCards block='A' />
           <div className='half-blocks__image img-right'>
