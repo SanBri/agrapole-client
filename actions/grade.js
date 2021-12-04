@@ -1,14 +1,14 @@
 import axios from "axios";
 
-import { GET_GRADE, EDIT_GRADE, GRADE_ERROR } from "./types";
+import { GET_GRADES, EDIT_GRADE, GRADE_ERROR } from "./types";
 import { setAlert } from "./alert";
 
 // Get Grade
-export const getGrade = () => async (dispatch) => {
+export const getGrades = () => async (dispatch) => {
   try {
     let res = await axios.get(`${process.env.URL}/grade/`);
     dispatch({
-      type: GET_GRADE,
+      type: GET_GRADES,
       payload: res.data,
     });
   } catch (err) {

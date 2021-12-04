@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { getHero } from "../../actions/hero";
 import { getPDFCards } from "../../actions/PDFCard";
-import { getGrade } from "../../actions/grade";
+import { getGrades } from "../../actions/grade";
 import { getPartners, deletePartner } from "../../actions/partner";
 import Card from "../common/Card";
 import Spinner from "../common/Spinner";
@@ -34,7 +34,7 @@ const DashboardLayout = ({ type, title, block }) => {
     : type == "partner"
     ? (action = getPartners())
     : type == "grade"
-    ? (action = getGrade())
+    ? (action = getGrades())
     : "";
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const DashboardLayout = ({ type, title, block }) => {
     ? ((data = useSelector((state) => state.partnerReducer.partners)),
       (loading = useSelector((state) => state.partnerReducer.loading)))
     : type === "grade"
-    ? ((data = useSelector((state) => state.gradeReducer.grade)),
+    ? ((data = useSelector((state) => state.gradeReducer.grades)),
       (loading = useSelector((state) => state.gradeReducer.loading)))
     : "";
 
@@ -137,10 +137,16 @@ const DashboardLayout = ({ type, title, block }) => {
             <PartnerForm blockID={id} />
           </>
         ) : type === "grade" ? (
-          <>
-            <Grade admin />
-            <GradeForm blockID={id} />
-          </>
+          data.length > 0 ? (
+            data.map((grade) => (
+              <>
+                <Grade data={grade} admin />
+                {/*  <GradeForm blockID={id} /> */}
+              </>
+            ))
+          ) : (
+            <p>Il n'y aucune note</p>
+          )
         ) : (
           ""
         )}

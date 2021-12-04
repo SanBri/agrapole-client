@@ -1,22 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getGrade } from "../../actions/grade";
-
-const Grade = ({ admin = false }) => {
-  const dispatch = useDispatch();
+const Grade = ({ data, admin = false }) => {
   let classDefinition = {};
 
-  const grade = useSelector((state) => state.gradeReducer.grade);
-
-  useEffect(() => {
-    dispatch(getGrade());
-  }, [dispatch]);
-
-  let { title, average, scale } = grade;
+  let { title, average, scale } = data;
 
   !admin
     ? (classDefinition = {
         global: "grade",
+        icon: "grade__icon",
         title: "grade__title",
         content: "grade__content",
       })
@@ -35,6 +25,7 @@ const Grade = ({ admin = false }) => {
         </div>
       ) : (
         <>
+          <div className={classDefinition.icon}></div>
           <div className={classDefinition.title}>
             <h3>{title} :</h3>
           </div>

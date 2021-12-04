@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGrade, editGrade } from "../actions/grade";
+import { getGrades, editGrade } from "../actions/grade";
 
 import Button from "./common/Button";
 import Input from "./common/Input";
@@ -17,7 +17,7 @@ const gradeForm = ({ blockID }) => {
   });
 
   useEffect(() => {
-    dispatch(getGrade());
+    dispatch(getGrades());
   }, [dispatch]);
 
   let grade = null;
