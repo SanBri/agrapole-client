@@ -9,7 +9,7 @@ import HalfBlocks from "../components/common/HalfBlocks";
 import Grade from "../components/common/Grade";
 import Slider from "../components/Slider";
 import Contact from "../components/Contact";
-import PDFCards from "../components/common/PDFCards";
+import Cards from "../components/common/Cards";
 import NavBar from "../components/layout/NavBar";
 
 export default function Home() {
@@ -35,20 +35,22 @@ export default function Home() {
         <Hero></Hero>
         <About />
         <HalfBlocks id='halfBlockA'>
-          <PDFCards block='A' />
+          <Cards type='PDF' block='A' />
           <div className='half-blocks__image img-right'>
             <img src='/right.jfif' width='100%' />
           </div>
         </HalfBlocks>
-        <div className='grade-and-partners'>
+        <HalfBlocks id='partnersAndGrades'>
+          <Cards type='grades' />
           <Slider />
-          <Grade />
-        </div>
+        </HalfBlocks>
+        {/* <Grade /> */}
+        <div className='grade-and-partners'></div>
         <HalfBlocks id='halfBlockB'>
           <div className='half-blocks__image img-left'>
             <img src='/left.jpg' width='100%' />
           </div>
-          <PDFCards block='B' />
+          <Cards type='PDF' block='B' />
         </HalfBlocks>
         <Contact />
         {mobile && isAuthenticated && (
