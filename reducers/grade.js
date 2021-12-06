@@ -1,7 +1,13 @@
-import { GET_GRADES, EDIT_GRADE, GRADE_ERROR } from "../actions/types";
+import {
+  GET_GRADES,
+  GET_GRADE,
+  EDIT_GRADE,
+  GRADE_ERROR,
+} from "../actions/types";
 
 const initialState = {
   grades: [],
+  grade: null,
   loading: true,
   error: {},
 };
@@ -15,10 +21,16 @@ const gradeReducer = (state = initialState, action) => {
         grades: payload,
         loading: false,
       };
-    case EDIT_GRADE:
+    case GET_GRADE:
       return {
         ...state,
         grades: payload,
+        loading: false,
+      };
+    case EDIT_GRADE:
+      return {
+        ...state,
+        grades: grades,
         loading: false,
       };
     case GRADE_ERROR:

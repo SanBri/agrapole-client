@@ -19,5 +19,6 @@ export const ADD_PARTNER = "ADD_PARTNER";
 export const DELETE_PARTNER = "DELETE_PARTNER";
 export const PARTNERS_ERROR = "PARTNERS_ERROR";
 export const GET_GRADES = "GET_GRADES";
+export const GET_GRADE = "GET_GRADE";
 export const EDIT_GRADE = "EDIT_GRADE";
 export const GRADE_ERROR = "GRADE_ERROR";
