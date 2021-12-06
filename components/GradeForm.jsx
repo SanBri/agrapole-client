@@ -5,9 +5,8 @@ import { getGrades, editGrade } from "../actions/grade";
 import Button from "./common/Button";
 import Input from "./common/Input";
 
-const gradeForm = ({ blockID }) => {
+const gradeForm = ({ gradeID, blockID }) => {
   const dispatch = useDispatch();
-
   const [showEditGrade, toggleshowEditGrade] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -20,32 +19,34 @@ const gradeForm = ({ blockID }) => {
     dispatch(getGrades());
   }, [dispatch]);
 
-  let grade = null;
+  let data = null;
 
-  grade = useSelector((state) => state.gradeReducer.grade);
+  data = useSelector((state) =>
+    state.gradeReducer.grades.find((e) => e._id === gradeID)
+  );
 
   useEffect(() => {
-    if (grade) {
+    if (data) {
       setFormData((formData) => ({
         ...formData,
-        title: grade.title,
-        average: grade.average,
-        scale: grade.scale,
+        title: data.title,
+        average: data.average,
+        scale: data.scale,
       }));
     }
-  }, [grade]);
+  }, [data]);
 
   useEffect(() => {
     if (showEditGrade) {
-      document.getElementById("grade").style.display = "none";
+      document.getElementById(data._id).style.display = "none";
       setFormData((formData) => ({
         ...formData,
-        title: grade.title,
-        average: grade.average,
-        scale: grade.scale,
+        title: data.title,
+        average: data.average,
+        scale: data.scale,
       }));
     } else {
-      document.getElementById("grade").style.display = "flex";
+      document.getElementById(data._id).style.display = "flex";
     }
   }, [showEditGrade]);
 
@@ -58,7 +59,9 @@ const gradeForm = ({ blockID }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     toggleshowEditGrade(!showEditGrade);
-    dispatch(editGrade(formData, blockID));
+    dispatch(editGrade(formData, data.name, blockID));
+    dispatch(getGrades());
+    dispatch(getGrades());
   };
 
   let editButtonText;
@@ -74,7 +77,7 @@ const gradeForm = ({ blockID }) => {
       {showEditGrade ? (
         <form
           className='grade-form'
-          id='gradeForm'
+          id={`gradeForm`}
           onSubmit={(e) => onSubmit(e)}
         >
           <Input
@@ -84,7 +87,7 @@ const gradeForm = ({ blockID }) => {
             placeholder='Rédigez le titre'
             value={title}
             onChange={(e) => onChange(e)}
-            maxLength='40'
+            maxLength='50'
           />
           <div className='grade-form__numbers'>
             <Input

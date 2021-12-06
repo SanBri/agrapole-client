@@ -137,16 +137,20 @@ const DashboardLayout = ({ type, title, block }) => {
             <PartnerForm blockID={id} />
           </>
         ) : type === "grade" ? (
-          data.length > 0 ? (
-            data.map((grade) => (
-              <>
-                <Grade data={grade} admin />
-                {/*  <GradeForm blockID={id} /> */}
-              </>
-            ))
-          ) : (
-            <p>Il n'y aucune note</p>
-          )
+          <div className='dashboard-layout__grades'>
+            {data.length > 0 ? (
+              data.map((grade) => (
+                <div key={grade._id} className='_grade'>
+                  <Grade data={grade} admin />
+                  <GradeForm gradeID={grade._id} blockID={id} />
+                </div>
+              ))
+            ) : (
+              <p style={{ textAlign: "center" }} ù>
+                Il n'y aucune note
+              </p>
+            )}
+          </div>
         ) : (
           ""
         )}
