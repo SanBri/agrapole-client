@@ -1,7 +1,7 @@
 const Grade = ({ data, admin = false }) => {
   let classDefinition = {};
 
-  let { title, average, scale } = data;
+  let { _id, name, title, average, scale } = data;
 
   !admin
     ? (classDefinition = {
@@ -16,23 +16,26 @@ const Grade = ({ data, admin = false }) => {
       });
 
   return (
-    <div className={classDefinition.global} id='grade'>
+    <div className={classDefinition.global} id={_id}>
       {admin ? (
         <div className={classDefinition.content}>
+          <h6>{title} :</h6>
           <h6>
-            {title} : {average}/{scale}
+            {average}/{scale}
           </h6>
         </div>
       ) : (
         <>
-          <div className={classDefinition.icon}></div>
+          <div className={classDefinition.icon}>
+            <img src={`./icons/grades/${name}.png`} width='50' height='50' />
+          </div>
           <div className={classDefinition.title}>
-            <h3>{title} :</h3>
+            <p>{title} :</p>
           </div>
           <div className={classDefinition.content}>
-            <h3>
+            <p className='bold'>
               {average}/{scale}
-            </h3>
+            </p>
           </div>
         </>
       )}

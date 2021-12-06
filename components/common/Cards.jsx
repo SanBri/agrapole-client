@@ -7,7 +7,7 @@ import Grade from "./Grade";
 
 import PDFCard from "./PDFCard";
 
-const Cards = ({ type, block }) => {
+const Cards = ({ type, title, block }) => {
   const dispatch = useDispatch();
   const [id] = useState(uuidv4());
   let data = null;
@@ -34,37 +34,39 @@ const Cards = ({ type, block }) => {
 
   return (
     <div className='half-blocks__cards'>
-      {type === "PDF" ? (
-        data && data.data.length > 0 ? (
-          data.data.map((pdfCard) => (
-            <PDFCard
-              key={pdfCard._id}
-              block={block}
-              id={pdfCard._id}
-              title={pdfCard.title}
-              link={`/${pdfCard._id}`}
-            />
-          ))
-        ) : (
-          <img src='./logo.png' width='50%' height='100%' />
-        )
-      ) : type === "grades" ? (
-        data && data.length > 0 ? (
-          data.map((grade) => (
-            <>
-              <p>{grade.title}</p>
-              <p>
-                {grade.average}/{grade.scale}
-              </p>
-            </>
-          ))
+      <div className='half-blocks__cards-title'>
+        <h3>{title}</h3>
+      </div>
+      <div className='half-blocks__cards-content'>
+        {type === "PDF" ? (
+          data && data.data.length > 0 ? (
+            data.data.map((pdfCard) => (
+              <PDFCard
+                key={pdfCard._id}
+                block={block}
+                id={pdfCard._id}
+                title={pdfCard.title}
+                link={`/${pdfCard._id}`}
+              />
+            ))
+          ) : (
+            <img src='./logo.png' width='50%' height='100%' />
+          )
+        ) : type === "grades" ? (
+          data && data.length > 0 ? (
+            data.map((grade) => (
+              <>
+                <Grade data={grade} />
+              </>
+            ))
+          ) : (
+            ""
+            // data.data.map((grade) => <Grade data={grade} />)
+          )
         ) : (
           ""
-          // data.data.map((grade) => <Grade data={grade} />)
-        )
-      ) : (
-        ""
-      )}
+        )}
+      </div>
     </div>
   );
 };
