@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import Layout from "../components/layout/Layout";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import CoursesBlock from "../components/CoursesBlock";
 import HalfBlocks from "../components/common/HalfBlocks";
-import Grade from "../components/common/Grade";
 import Slider from "../components/Slider";
 import Contact from "../components/Contact";
 import Cards from "../components/common/Cards";
@@ -34,12 +34,7 @@ export default function Home() {
         {isAuthenticated && !mobile ? <NavBar position='right' /> : ""}
         <Hero></Hero>
         <About />
-        {/* <HalfBlocks id='halfBlockA'>
-          <Cards type='PDF' block='A' />
-          <div className='half-blocks__image img-right'>
-            <img src='/right.jfif' width='100%' />
-          </div>
-        </HalfBlocks> */}
+        <CoursesBlock />
         <HalfBlocks id='partnersAndGrades'>
           <Slider />
           <Cards type='grades' title='EN QUELQUES CHIFFRES' />

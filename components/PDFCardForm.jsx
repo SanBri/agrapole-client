@@ -102,19 +102,17 @@ const PDFCardForm = ({
   return (
     <>
       {!inPDFCard &&
-        (!maximumPDFCards && !loading ? (
-          <Button
-            className='add'
-            text={addButtonText}
-            onClick={(e) => toggleshowAddPDFCard(!showAddPDFCard)}
-          ></Button>
-        ) : !loading ? (
+        (!loading && whichBlock === "B" && maximumPDFCards ? (
           <p className='info italic'>
             Le nombre maximum de fichier PDF pour cette fenêtre est atteint,
             supprimez-en pour en ajouter de nouveaux
           </p>
         ) : (
-          ""
+          <Button
+            className='add'
+            text={addButtonText}
+            onClick={(e) => toggleshowAddPDFCard(!showAddPDFCard)}
+          ></Button>
         ))}
       {showAddPDFCard ? (
         <form
