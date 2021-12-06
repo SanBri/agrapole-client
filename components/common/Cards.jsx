@@ -28,8 +28,7 @@ const Cards = ({ type, title, block }) => {
         state.PDFCardReducer.PDFCards.find((e) => e.id === id)
       ))
     : type === "grades"
-    ? ((data = useSelector((state) => state.gradeReducer.grades)),
-      console.log(data))
+    ? (data = useSelector((state) => state.gradeReducer.grades))
     : "";
 
   return (
@@ -54,14 +53,9 @@ const Cards = ({ type, title, block }) => {
           )
         ) : type === "grades" ? (
           data && data.length > 0 ? (
-            data.map((grade) => (
-              <>
-                <Grade data={grade} />
-              </>
-            ))
+            data.map((grade) => <Grade key={grade._id} data={grade} />)
           ) : (
             ""
-            // data.data.map((grade) => <Grade data={grade} />)
           )
         ) : (
           ""
