@@ -18,7 +18,7 @@
       position: absolute;
       left: 1%;
       & img {
-        border-radius: 2%;
+        border-radius: $regular-radius;
       }
     }
     &-text {
@@ -27,7 +27,7 @@
       background-color: rgba(white, 0.8);
       position: absolute;
       left: 50%;
-      border-radius: 2%;
+      border-radius: $regular-radius;
       padding-top: 1rem;
       text-align: center;
       box-shadow: $all-shadow;

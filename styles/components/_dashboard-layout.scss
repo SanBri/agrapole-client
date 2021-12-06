@@ -119,6 +119,12 @@
         padding: 0.5rem;
       }
     }
+    &__grades {
+      flex-direction: column;
+      & ._grade {
+        margin-bottom: 1.5rem;
+      }
+    }
   }
   #heroForm,
   #partnerForm {

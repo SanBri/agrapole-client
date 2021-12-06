@@ -7,7 +7,7 @@
   color: white;
   cursor: pointer;
   border-radius: 8%;
-  box-shadow: 0 0 0 $color-primary;
+  box-shadow: 0 0 0 $color-secondary;
   text-align: center;
   transition: opacity 0.5s;
   &:hover {
@@ -17,7 +17,7 @@
 
 .add {
   width: 11rem;
-  background-color: $color-primary;
+  background-color: $color-success;
   font-weight: bold;
   margin: 1rem auto;
 }

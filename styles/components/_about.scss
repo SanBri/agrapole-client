@@ -6,7 +6,7 @@
   height: auto;
   &-text {
     width: 60%;
-    background-color: rgba($color-primary, 0.8);
+    background-color: $color-primary;
     border-radius: 1rem;
     &__title {
       background-color: rgba($background-prim, 0.4);
