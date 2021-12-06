@@ -1,13 +1,17 @@
 .slider {
   height: 30rem;
-  width: 60%;
+  width: 35%;
   @include margin-between-blocks();
+  border-radius: 2%;
+  padding-top: 0.95rem;
+  background-color: $color-primary;
   &__title {
+    border-radius: 2%;
     padding: 0.5rem;
     color: #fff;
     max-width: 100%;
     text-align: center;
-    background-color: rgba($color-primary, 0.5);
+    background-color: rgba($background-prim, 0.4);
   }
   &__carousel {
     .carousel {
@@ -53,8 +57,7 @@
   .slider {
     width: 100%;
     margin: 0;
-    margin-bottom: 0.5rem;
-    padding: 0 0.5rem;
+    height: 29rem;
     &__title {
       padding: 0;
       max-width: 100%;

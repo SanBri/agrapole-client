@@ -21,7 +21,7 @@ const Slider = () => {
   return (
     <div className='slider'>
       <div className='slider__title'>
-        <h2>Nos Partenaires</h2>
+        <h3>NOS PARTENAIRES</h3>
       </div>
       {data.length > 0 ? (
         <div className='slider__carousel'>
