@@ -34,18 +34,16 @@ export default function Home() {
         {isAuthenticated && !mobile ? <NavBar position='right' /> : ""}
         <Hero></Hero>
         <About />
-        <HalfBlocks id='halfBlockA'>
+        {/* <HalfBlocks id='halfBlockA'>
           <Cards type='PDF' block='A' />
           <div className='half-blocks__image img-right'>
             <img src='/right.jfif' width='100%' />
           </div>
-        </HalfBlocks>
+        </HalfBlocks> */}
         <HalfBlocks id='partnersAndGrades'>
-          <Cards type='grades' />
           <Slider />
+          <Cards type='grades' title='EN QUELQUES CHIFFRES' />
         </HalfBlocks>
-        {/* <Grade /> */}
-        <div className='grade-and-partners'></div>
         <HalfBlocks id='halfBlockB'>
           <div className='half-blocks__image img-left'>
             <img src='/left.jpg' width='100%' />
