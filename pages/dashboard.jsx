@@ -21,10 +21,10 @@ const dashboard = () => {
         </div>
         <div className='administration__content'>
           <DashboardLayout type='hero' title='Accueil' />
-          <DashboardLayout type='PDF' title='Fenêtre PDF A' block='A' />
-          <DashboardLayout type='grade' title='Note Moyenne' />
+          <DashboardLayout type='PDF' title='Formations (PDF)' block='A' />
+          <DashboardLayout type='grade' title='Moyennes' />
           <DashboardLayout type='partner' title='Partenaires' />
-          <DashboardLayout type='PDF' title='Fenêtre PDF B' block='B' />
+          <DashboardLayout type='PDF' title="Plus d'infos (PDF)" block='B' />
         </div>
       </div>
       <div className='mobile-only'>
