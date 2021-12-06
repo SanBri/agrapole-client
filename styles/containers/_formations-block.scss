@@ -84,3 +84,26 @@
     }
   }
 }
+
+/* MOBILE */
+@media all and (max-width: $breakpoint-mobile) {
+  .courses-block {
+    padding: 0;
+    &__content {
+      width: 100%;
+      &-slider {
+        & .carousel {
+          & .slide {
+            &-content {
+              &__PDF-cards {
+                & .PDF-card {
+                  width: 12rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
