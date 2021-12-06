@@ -30,8 +30,11 @@ const CoursesBlock = () => {
         </div>
         <div className='courses-block__content-slider'>
           <Carousel
-            autoPlay={false}
-            stopOnHover={false}
+            selectedItem={0}
+            swipeable={true}
+            autoPlay={true}
+            interval={4500}
+            stopOnHover
             infiniteLoop
             showThumbs={false}
             showStatus={false}

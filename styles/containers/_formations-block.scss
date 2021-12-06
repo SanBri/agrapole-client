@@ -7,6 +7,9 @@
   justify-content: flex-end;
   padding: 2rem;
   box-sizing: border-box;
+  background: url("/courses.jpg");
+  background-size: cover;
+  background-position-y: 40%;
   &__content {
     width: 45%;
     height: auto;
@@ -85,21 +88,75 @@
   }
 }
 
+/* PETIT ECRAN */
+@media all and (max-width: $breakpoint-small-screen) {
+  .courses-block {
+    height: 25rem;
+    margin: 0;
+    padding-top: 1rem;
+    &__content {
+      width: 50%;
+      height: 10rem;
+      padding: 0;
+      &-title {
+        margin-top: 0.5rem;
+      }
+      &-slider {
+        .carousel.carousel-slider .control-arrow:before {
+          font-size: 2rem;
+        }
+      }
+      & .carousel {
+        height: 19rem;
+        & .slide {
+          &-content {
+            &__PDF-cards {
+              padding: 0.5rem;
+              & .PDF-card {
+                width: 15rem;
+                height: 4.8rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 /* MOBILE */
 @media all and (max-width: $breakpoint-mobile) {
   .courses-block {
     padding: 0;
     &__content {
+      height: auto;
       width: 100%;
+      background-color: rgba($color-secondary, 0);
+      &-title {
+        background-color: rgba($background-prim, 0.9);
+        color: black;
+      }
       &-slider {
+        & .animated {
+          background-color: rgba($color-secondary, 0);
+        }
         .carousel.carousel-slider .control-arrow:before {
-          font-size: 2rem;
+          font-size: 2.5rem;
+          color: white;
+          & .carousel-root {
+            background-color: red;
+          }
         }
         & .carousel {
+          height: 21rem;
           & .slide {
+            background-color: rgba($color-secondary, 0.2);
+
             &-content {
               &__PDF-cards {
+                padding: 1rem;
                 & .PDF-card {
+                  background-color: rgba($background-prim, 0.8);
                   width: 12rem;
                 }
               }
