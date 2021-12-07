@@ -42,17 +42,17 @@ const CoursesBlock = () => {
           >
             {data &&
               courses.map((element) => (
-                <div className='slide-content'>
-                  {element.map((course) => (
-                    <div className='slide-content__PDF-cards'>
+                <div key={courses.indexOf(element)} className='slide-content'>
+                  <div className='slide-content__PDF-cards'>
+                    {element.map((course) => (
                       <div key={course._id} className='PDF-card'>
                         <div className='PDF-card__title'>
                           <p>{course.title}</p>
                         </div>
                         <Button className='pdf-button' text='Voir le PDF' />
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               ))}
           </Carousel>

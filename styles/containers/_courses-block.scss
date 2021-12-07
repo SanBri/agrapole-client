@@ -72,9 +72,9 @@
             & .PDF-card {
               width: 20rem;
               height: 7rem;
-              margin: auto;
+              margin: 0.5rem auto;
               border-radius: 1rem;
-              padding: 0.5rem;
+              padding: 1rem;
               border: none;
               background-color: rgba($background-prim, 0.4);
               display: flex;
@@ -111,7 +111,7 @@
         & .slide {
           &-content {
             &__PDF-cards {
-              padding: 0.5rem;
+              padding: 0rem;
               & .PDF-card {
                 width: 15rem;
                 height: 4.8rem;
