@@ -29,4 +29,7 @@ $breakpoint-small-mobile: 400px;
   @media all and (max-width: $breakpoint-small-screen) {
     margin-top: 1rem;
   }
+  @media all and (max-width: $breakpoint-mobile) {
+    margin-top: 0.5rem;
+  }
 }

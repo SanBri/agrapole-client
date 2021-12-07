@@ -4,6 +4,11 @@
   justify-content: space-evenly;
   padding: 0.5rem 1rem;
   height: 32rem;
+  #grades {
+    background: url("/grades.jpg");
+    background-size: cover;
+    background-position-y: 30%;
+  }
   &__cards {
     @include margin-between-blocks();
     width: 60%;
@@ -17,7 +22,7 @@
     box-shadow: $all-shadow;
     &-title {
       width: 100%;
-      background-color: rgba($background-prim, 0.4);
+      background-color: rgba($background-prim, 0.6);
       color: #fff;
       text-align: center;
       padding: 0.5rem;
@@ -60,9 +65,6 @@
       }
     }
   }
-  .grade-and-partners {
-    padding: 0 2rem;
-  }
 }
 
 /* MOBILE */
@@ -72,8 +74,13 @@
     height: auto;
     flex-direction: column;
     margin: 0;
-    padding: 0.5rem;
+    padding: 0;
+    #grades {
+      background-size: cover;
+      background-position-x: 35%;
+    }
     &__cards {
+      border-radius: 0;
       width: 100%;
       &-content {
         padding: 1rem 1rem 0;
@@ -90,12 +97,5 @@
   }
   #halfBlockB {
     margin-bottom: 1.5rem;
-  }
-  .grade-and-partners {
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    padding: 0;
   }
 }

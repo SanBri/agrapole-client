@@ -118,7 +118,6 @@ const DashboardLayout = ({ type, title, block }) => {
                         <PartnerLogo image={partner.image} size={100} />
                       </div>
                     )}
-                    <div className='line'></div>
                     <div className='partner__button'>
                       <Button
                         className='delete'

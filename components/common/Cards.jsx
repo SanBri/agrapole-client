@@ -7,14 +7,14 @@ import Grade from "./Grade";
 
 import PDFCard from "./PDFCard";
 
-const Cards = ({ type, title, block }) => {
+const Cards = ({ type, title, block, id }) => {
   const dispatch = useDispatch();
-  const [id] = useState(uuidv4());
+  const [randomID] = useState(uuidv4());
   let data = null;
   let action;
 
   type === "PDF"
-    ? (action = getPDFCards(block, id))
+    ? (action = getPDFCards(block, randomID))
     : type == "grades"
     ? (action = getGrades())
     : "";
@@ -25,14 +25,14 @@ const Cards = ({ type, title, block }) => {
 
   type === "PDF"
     ? (data = useSelector((state) =>
-        state.PDFCardReducer.PDFCards.find((e) => e.id === id)
+        state.PDFCardReducer.PDFCards.find((e) => e.id === randomID)
       ))
     : type === "grades"
     ? (data = useSelector((state) => state.gradeReducer.grades))
     : "";
 
   return (
-    <div className='half-blocks__cards'>
+    <div className='half-blocks__cards' id={id}>
       <div className='half-blocks__cards-title'>
         <h3>{title}</h3>
       </div>

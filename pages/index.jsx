@@ -37,7 +37,7 @@ export default function Home() {
         <CoursesBlock />
         <HalfBlocks id='partnersAndGrades'>
           <Slider />
-          <Cards type='grades' title='EN QUELQUES CHIFFRES' />
+          <Cards type='grades' title='EN QUELQUES CHIFFRES' id='grades' />
         </HalfBlocks>
         <HalfBlocks id='halfBlockB'>
           <div className='half-blocks__image img-left'>
