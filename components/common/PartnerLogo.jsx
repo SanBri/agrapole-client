@@ -1,11 +1,16 @@
-const PartnerLogo = ({ image, size }) => {
-  // let url = `http://localhost:5000/api/partners/logoFile/${image}`;
-  let url = `https://frseaaura.herokuapp.com/api/partners/logoFile/${image}`;
+import { Image, Transformation } from "cloudinary-react";
 
+const PartnerLogo = ({ image, size }) => {
   let inline = {};
   size && ((inline.width = size), (inline.height = size));
 
-  return <>{<img src={url} style={inline} />}</>;
+  return (
+    <>
+      <Image cloudName='hcn0tdlxx' publicId={`frseaura/partners/${image}`}>
+        <Transformation width='70' height='100' />
+      </Image>
+    </>
+  );
 };
 
 export default PartnerLogo;
