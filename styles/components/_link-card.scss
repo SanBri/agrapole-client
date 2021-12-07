@@ -10,7 +10,7 @@
   opacity: 0.7;
   transition: all 0.4s;
   &:hover {
-    color: rgba($color-primary, 1);
+    color: rgba($color-secondary, 1);
     text-shadow: $regular-shadow;
   }
   &__icon {
@@ -18,7 +18,5 @@
     & i {
       font-size: 3rem;
     }
-  }
-  &__title {
   }
 }
