@@ -1,15 +1,12 @@
 .courses-block {
-  width: 100%;
-  height: auto;
-  background-color: rgba(119, 76, 76, 0.3);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   padding: 2rem;
-  box-sizing: border-box;
-  background: url("/courses.jpg");
-  background-size: cover;
-  background-position-y: 40%;
+  width: 100%;
+  height: auto;
+  box-shadow: $all-shadow;
+
   &__content {
     width: 45%;
     height: auto;

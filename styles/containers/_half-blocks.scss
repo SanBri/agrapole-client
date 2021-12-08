@@ -36,24 +36,6 @@
       justify-content: space-evenly;
     }
   }
-  &__image {
-    @include margin-between-blocks();
-    border-radius: $regular-radius;
-    width: 50%;
-    height: 30rem;
-    overflow: hidden;
-    img {
-      border-radius: $regular-radius;
-      box-shadow: $all-shadow;
-    }
-  }
-}
-
-.img-right {
-  margin-right: 2rem;
-}
-.img-left {
-  margin-left: 2rem;
 }
 
 /* PETIT ECRAN */
@@ -88,14 +70,5 @@
         justify-content: space-evenly;
       }
     }
-    &__image {
-      margin: 0;
-      padding: 0.5rem;
-      width: 100%;
-      height: auto;
-    }
-  }
-  #halfBlockB {
-    margin-bottom: 1.5rem;
   }
 }
