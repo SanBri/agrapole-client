@@ -1,0 +1,81 @@
+.full-block {
+  @include margin-between-blocks;
+  width: 100%;
+  height: auto;
+  background-color: rgba(119, 76, 76, 0.3);
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  box-shadow: $all-shadow;
+  .half-blocks {
+    &__cards {
+      margin: auto 0;
+      height: 30rem;
+      border-radius: $regular-radius;
+      &-content {
+        font-size: 1rem;
+        padding: 2rem;
+      }
+    }
+  }
+}
+#courses {
+  justify-content: flex-end;
+  background: url("/courses.jpg");
+  background-size: cover;
+  background-position-y: 40%;
+}
+#information {
+  justify-content: flex-start;
+  padding: 2rem;
+  background: url("/information.jpg");
+  background-size: cover;
+  background-position-y: 45%;
+}
+
+/* PETIT ECRAN */
+@media all and (max-width: $breakpoint-small-screen) {
+  #information {
+    background-size: contain;
+  }
+  .full-block {
+    .half-blocks {
+      height: auto;
+      &__cards {
+        width: auto;
+        height: auto;
+        &-content {
+          font-size: 0.96rem;
+          & .PDF-card {
+            margin: 0 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* MOBILE */
+@media all and (max-width: $breakpoint-mobile) {
+  #information {
+    background-size: cover;
+  }
+  .full-block {
+    .half-blocks {
+      &__cards {
+        height: auto;
+        background-color: rgba($color-primary, 0.93);
+        &-content {
+          width: 100%;
+          margin: auto;
+          flex-direction: column;
+          justify-content: space-evenly;
+          padding: 0;
+          & .PDF-card {
+            margin: 0.5rem auto;
+          }
+        }
+      }
+    }
+  }
+}

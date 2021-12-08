@@ -11,6 +11,7 @@ import Slider from "../components/Slider";
 import Contact from "../components/Contact";
 import Cards from "../components/common/Cards";
 import NavBar from "../components/layout/NavBar";
+import FullBlock from "../components/common/FullBlock";
 
 export default function Home() {
   const isAuthenticated = useSelector(
@@ -34,17 +35,16 @@ export default function Home() {
         {isAuthenticated && !mobile ? <NavBar position='right' /> : ""}
         <Hero></Hero>
         <About />
-        <CoursesBlock />
+        <FullBlock id='courses'>
+          <CoursesBlock />
+        </FullBlock>
         <HalfBlocks id='partnersAndGrades'>
           <Slider />
           <Cards type='grades' title='EN QUELQUES CHIFFRES' id='grades' />
         </HalfBlocks>
-        <HalfBlocks id='halfBlockB'>
-          <div className='half-blocks__image img-left'>
-            <img src='/left.jpg' width='100%' />
-          </div>
-          <Cards type='PDF' block='B' />
-        </HalfBlocks>
+        <FullBlock id='information'>
+          <Cards title="PLUS D'INFORMATIONS" type='PDF' block='B' />
+        </FullBlock>
         <Contact />
         {mobile && isAuthenticated && (
           <div className='mobile-only navIndex'>
