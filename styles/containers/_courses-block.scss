@@ -6,12 +6,12 @@
   width: 100%;
   height: auto;
   box-shadow: $all-shadow;
-
   &__content {
     width: 45%;
     height: auto;
     border-radius: $regular-radius;
     background-color: $color-secondary;
+    box-shadow: $all-shadow;
     &-title {
       margin-top: 1rem;
       width: 100%;
@@ -148,7 +148,6 @@
           height: 21rem;
           & .slide {
             background-color: rgba($color-secondary, 0.2);
-
             &-content {
               &__PDF-cards {
                 padding: 1rem;
