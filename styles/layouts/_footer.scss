@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
   @include margin-between-blocks();
   &__content {
     width: 80%;
@@ -12,6 +13,9 @@
     font-size: 0.8rem;
     padding-top: 1rem;
     .signature {
+      p {
+        margin-top: 5px;
+      }
       display: inline;
       color: $color-primary;
       font-weight: bold;
@@ -19,5 +23,12 @@
     &:hover .signature p {
       animation: shake 0.5s forwards;
     }
+  }
+}
+
+/* MOBILE */
+@media all and (max-width: $breakpoint-mobile) {
+  .footer {
+    margin-top: 2.5rem;
   }
 }
