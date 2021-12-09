@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 import { getPDFCards } from "../actions/PDFCard";
 import _ from "lodash";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+
 import Button from "./common/Button";
 
 const CoursesBlock = () => {
@@ -49,7 +51,11 @@ const CoursesBlock = () => {
                         <div className='PDF-card__title'>
                           <p>{course.title}</p>
                         </div>
-                        <Button className='pdf-button' text='Voir le PDF' />
+                        <Link href={`/${course._id}`}>
+                          <a target='_blank' rel='noopener noreferrer'>
+                            <Button className='pdf-button' text='Voir le PDF' />
+                          </a>
+                        </Link>
                       </div>
                     ))}
                   </div>
