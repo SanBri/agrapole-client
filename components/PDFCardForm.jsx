@@ -57,23 +57,28 @@ const PDFCardForm = ({
     let singleFileName;
     let newFileName;
     if (e.target.name === "sampleFile") {
-      fileInput.files[0] && fileInput.files[0].type != "application/pdf"
-        ? (dispatch(
-            setAlert(
-              "Veuillez importer un fichier au format PDF",
-              "danger",
-              blockID
-            )
-          ),
-          (fileInput.value = null))
-        : fileInput.files[0] &&
-          ((newFileName = _.random([1], [9999]) + "_"), // Generate random number in case of identic file name
-          (singleFileName = fileInput.value.split("\\").pop()), // Delete path in file name
-          (newFileName += singleFileName.split(" ").join("_")), // Replace space by "_" in file name and concatenate random number with file name
-          setFormData({
-            ...formData,
-            PDF: newFileName,
-          }));
+      fileInput.files[0] &&
+        (fileInput.files[0].type != "application/pdf"
+          ? (dispatch(
+              setAlert(
+                "Veuillez importer un fichier au format PDF",
+                "danger",
+                blockID
+              )
+            ),
+            (fileInput.value = null))
+          : fileInput.files[0].size > 10000000
+          ? (dispatch(
+              setAlert("Le fichier est trop volumineux", "danger", blockID)
+            ),
+            (fileInput.value = null))
+          : ((newFileName = _.random([1], [9999]) + "_"), // Generate random number in case of identic file name
+            (singleFileName = fileInput.value.split("\\").pop()), // Delete path in file name
+            (newFileName += singleFileName.split(" ").join("_")), // Replace space by "_" in file name and concatenate random number with file name
+            setFormData({
+              ...formData,
+              PDF: newFileName,
+            })));
     } else {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
@@ -85,13 +90,13 @@ const PDFCardForm = ({
     !id
       ? dispatch(addPDFFile(fileInput.files[0], formData.PDF))
       : dispatch(addPDFFile(fileInput.files[0], formData.PDF, id));
-    !id
-      ? dispatch(addPDFCard(formData, null, blockID))
-      : dispatch(addPDFCard(formData, id, blockID, true));
-    toggleshowAddPDFCard(!showAddPDFCard),
-      setTimeout(() => {
-        router.reload("/dashboard");
-      }, 1000);
+    // !id
+    //   ? dispatch(addPDFCard(formData, null, blockID))
+    //   : dispatch(addPDFCard(formData, id, blockID, true));
+    // toggleshowAddPDFCard(!showAddPDFCard),
+    //   setTimeout(() => {
+    //     router.reload("/dashboard");
+    //   }, 1000);
   };
 
   let addButtonText;
