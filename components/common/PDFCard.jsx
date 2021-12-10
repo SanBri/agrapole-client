@@ -67,11 +67,11 @@ const PDFCard = ({
         <>
           <div className='line'></div>
           <div className='PDF-card__admin'>
-            <Button
+            {/* <Button
               className='edit'
               text={editButtonText}
               onClick={(e) => toggleShowForm(!showForm)}
-            />
+            /> */}
             {!showForm && (
               <Button
                 className='delete'
