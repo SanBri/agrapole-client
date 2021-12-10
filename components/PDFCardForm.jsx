@@ -90,13 +90,13 @@ const PDFCardForm = ({
     !id
       ? dispatch(addPDFFile(fileInput.files[0], formData.PDF))
       : dispatch(addPDFFile(fileInput.files[0], formData.PDF, id));
-    // !id
-    //   ? dispatch(addPDFCard(formData, null, blockID))
-    //   : dispatch(addPDFCard(formData, id, blockID, true));
-    // toggleshowAddPDFCard(!showAddPDFCard),
-    //   setTimeout(() => {
-    //     router.reload("/dashboard");
-    //   }, 1000);
+    !id
+      ? dispatch(addPDFCard(formData, null, blockID))
+      : dispatch(addPDFCard(formData, id, blockID, true));
+    toggleshowAddPDFCard(!showAddPDFCard),
+      setTimeout(() => {
+        router.reload("/dashboard");
+      }, 1000);
   };
 
   let addButtonText;
