@@ -30,14 +30,12 @@
   padding: 2rem;
   background: url("/information.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   background-position-y: 45%;
 }
 
 /* PETIT ECRAN */
 @media all and (max-width: $breakpoint-small-screen) {
-  #information {
-    background-size: contain;
-  }
   .full-block {
     .half-blocks {
       height: auto;
@@ -59,18 +57,23 @@
 @media all and (max-width: $breakpoint-mobile) {
   #information {
     background-size: cover;
+    padding: 0;
+    display: block;
   }
   .full-block {
     .half-blocks {
+      display: block;
+      padding: 0;
       &__cards {
         height: auto;
-        background-color: rgba($color-primary, 0.93);
+        background-color: transparent;
+        box-shadow: none;
         &-content {
           width: 100%;
           margin: auto;
           flex-direction: column;
           justify-content: space-evenly;
-          padding: 0;
+          padding: 1rem 0;
           & .PDF-card {
             margin: 0.5rem auto;
           }

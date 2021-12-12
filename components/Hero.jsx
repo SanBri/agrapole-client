@@ -28,7 +28,7 @@ const Hero = ({ admin = false }) => {
         PDF: "hero-admin__PDF",
       });
 
-  return (
+  return hero != null ? (
     <section>
       <div className={classDefinition.global} id='hero'>
         <div className='hero-titles'>
@@ -71,6 +71,8 @@ const Hero = ({ admin = false }) => {
         )}
       </div>
     </section>
+  ) : (
+    ""
   );
 };
 

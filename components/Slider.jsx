@@ -32,6 +32,7 @@ const Slider = () => {
             infiniteLoop
             showThumbs={false}
             showStatus={false}
+            showIndicators={false}
           >
             {data.map((e) => (
               <div className='slide-content' key={e._id} id={e.key}>
