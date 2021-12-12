@@ -1,8 +1,10 @@
 import ContactForm from "./ContactForm";
+import Alert from "./layout/Alert";
 
 const Contact = () => {
   return (
     <section>
+      <Alert blockID='contactForm' />
       <div className='contact'>
         <div className='contact__content'>
           <div className='contact__content-image'>
