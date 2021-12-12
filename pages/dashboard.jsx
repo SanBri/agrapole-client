@@ -8,7 +8,7 @@ const dashboard = () => {
   return (
     <>
       <Head>
-        <title>FRSEA AuRA | Administration</title>
+        <title>Administration | Cultive Ton Avenir - FRSEA AuRA </title>
         <script
           src='https://kit.fontawesome.com/556a7dddee.js'
           crossOrigin='anonymous'
