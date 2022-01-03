@@ -1,8 +1,12 @@
 import PDFViewer from "../components/PDFViewer";
-import Spinner from "../components/common/Spinner";
+import Error from "../components/common/Error";
 
 const PDFPage = ({ pdfCard }) => {
-  return <> {pdfCard.PDF ? <PDFViewer file={pdfCard.PDF} /> : <Spinner />}</>;
+  return (
+    <>
+      {pdfCard.PDF ? <PDFViewer file={pdfCard.PDF} /> : <Error error='404' />}
+    </>
+  );
 };
 
 export const getStaticPaths = async () => {
