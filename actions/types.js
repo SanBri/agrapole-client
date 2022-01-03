@@ -22,3 +22,6 @@ export const GET_GRADES = "GET_GRADES";
 export const GET_GRADE = "GET_GRADE";
 export const EDIT_GRADE = "EDIT_GRADE";
 export const GRADE_ERROR = "GRADE_ERROR";
+export const GET_FOOTER = "GET_FOOTER";
+export const EDIT_FOOTER = "EDIT_FOOTER";
+export const FOOTER_ERROR = "FOOTER_ERROR";
