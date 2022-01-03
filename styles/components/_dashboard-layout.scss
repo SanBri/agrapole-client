@@ -45,6 +45,9 @@
       width: 20rem;
     }
   }
+  &__footer {
+    width: 20rem;
+  }
 }
 
 #heroForm {
@@ -92,6 +95,10 @@
       width: 3rem;
     }
   }
+}
+
+#footerForm {
+  padding-top: 0.5rem;
 }
 
 /* PETIT ECRAN */
