@@ -25,6 +25,7 @@ const dashboard = () => {
           <DashboardLayout type='grade' title='Moyennes' />
           <DashboardLayout type='partner' title='Partenaires' />
           <DashboardLayout type='PDF' title="Plus d'infos (PDF)" block='B' />
+          <DashboardLayout type='footer' title='Pied de Page' />
         </div>
       </div>
       <div className='mobile-only'>

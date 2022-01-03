@@ -6,6 +6,7 @@ import { getHero } from "../../actions/hero";
 import { getPDFCards } from "../../actions/PDFCard";
 import { getGrades } from "../../actions/grade";
 import { getPartners, deletePartner } from "../../actions/partner";
+import { getFooter } from "../../actions/footer";
 import Card from "../common/Card";
 import Spinner from "../common/Spinner";
 import Alert from "../layout/Alert";
@@ -18,6 +19,8 @@ import PartnerForm from "../PartnerForm";
 import PartnerLogo from "../common/PartnerLogo";
 import Grade from "./Grade";
 import GradeForm from "../GradeForm";
+import Footer from "../layout/Footer";
+import FooterForm from "../FooterForm";
 
 const DashboardLayout = ({ type, title, block }) => {
   const dispatch = useDispatch();
@@ -31,10 +34,12 @@ const DashboardLayout = ({ type, title, block }) => {
     ? (action = getPDFCards(block, id))
     : type === "hero"
     ? (action = getHero())
-    : type == "partner"
+    : type === "partner"
     ? (action = getPartners())
-    : type == "grade"
+    : type === "grade"
     ? (action = getGrades())
+    : type === "footer"
+    ? (action = getFooter())
     : "";
 
   useEffect(() => {
@@ -56,6 +61,9 @@ const DashboardLayout = ({ type, title, block }) => {
     : type === "grade"
     ? ((data = useSelector((state) => state.gradeReducer.grades)),
       (loading = useSelector((state) => state.gradeReducer.loading)))
+    : type === "footer"
+    ? ((data = useSelector((state) => state.footerReducer.footer)),
+      (loading = useSelector((state) => state.footerReducer.loading)))
     : "";
 
   const deletePartnerClick = (partnerID, partnerName) => {
@@ -148,6 +156,17 @@ const DashboardLayout = ({ type, title, block }) => {
               <p style={{ textAlign: "center" }} ù>
                 Il n'y aucune note
               </p>
+            )}
+          </div>
+        ) : type === "footer" ? (
+          <div className='dashboard-layout__footer'>
+            {data != null ? (
+              <>
+                <Footer data={data} admin />
+                <FooterForm data={data} blockID={id} />
+              </>
+            ) : (
+              ""
             )}
           </div>
         ) : (
