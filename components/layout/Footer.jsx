@@ -33,7 +33,7 @@ const Footer = ({ data, admin = false }) => {
                 <p>
                   <Link href='http://www.sanb.fr'>
                     <a target='_blank' rel='noopener noreferrer'>
-                      Site Web par SanB 💭
+                      Site Web par Sandro Brignoli 💭
                     </a>
                   </Link>
                 </p>
