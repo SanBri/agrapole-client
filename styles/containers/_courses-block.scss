@@ -110,8 +110,9 @@
             &__PDF-cards {
               padding: 0rem;
               & .PDF-card {
-                width: 15rem;
-                height: 4.8rem;
+                width: 16rem;
+                height: 4.9rem;
+                padding: 0.5rem;
               }
             }
           }
@@ -153,8 +154,11 @@
                 padding: 1rem;
                 & .PDF-card {
                   background-color: rgba($background-prim, 0.8);
-                  width: 12rem;
+                  width: 15rem;
                   padding: 0.5rem;
+                  &__title {
+                    font-size: 0.9rem;
+                  }
                 }
               }
             }
