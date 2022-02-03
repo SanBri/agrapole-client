@@ -1,4 +1,7 @@
 const PDFViewer = ({ file }) => {
+  if (typeof window !== "undefined") {
+    document.body.style.overflow = "hidden";
+  }
   return (
     <>
       <object
