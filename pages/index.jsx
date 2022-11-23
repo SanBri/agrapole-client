@@ -32,24 +32,32 @@ export default function Home() {
       </Head>
 
       <Layout>
-        {isAuthenticated && !mobile ? <NavBar position='right' /> : ""}
-        <Hero></Hero>
-        <About />
-        <FullBlock id='courses'>
-          <CoursesBlock />
-        </FullBlock>
-        <HalfBlocks id='partnersAndGrades'>
-          <Slider />
-          <Cards type='grades' title='EN QUELQUES CHIFFRES' id='grades' />
-        </HalfBlocks>
-        <FullBlock id='information'>
-          <Cards title="PLUS D'INFORMATIONS" type='PDF' block='B' />
-        </FullBlock>
-        <Contact />
-        {mobile && isAuthenticated && (
-          <div className='mobile-only navIndex'>
-            <NavBar position='end' />
-          </div>
+        {setTimeout(
+          // Pour charger avant l'affichage
+          () => (
+            <>
+              {isAuthenticated && !mobile ? <NavBar position='right' /> : ""}
+              <Hero></Hero>
+              <About />
+              <FullBlock id='courses'>
+                <CoursesBlock />
+              </FullBlock>
+              <HalfBlocks id='partnersAndGrades'>
+                <Slider />
+                <Cards type='grades' title='EN QUELQUES CHIFFRES' id='grades' />
+              </HalfBlocks>
+              <FullBlock id='information'>
+                <Cards title="PLUS D'INFORMATIONS" type='PDF' block='B' />
+              </FullBlock>
+              <Contact />
+              {mobile && isAuthenticated && (
+                <div className='mobile-only navIndex'>
+                  <NavBar position='end' />
+                </div>
+              )}
+            </>
+          ),
+          3000
         )}
       </Layout>
     </>
