@@ -12,7 +12,7 @@ const Hero = ({ admin = false }) => {
   }, [dispatch]);
 
   const hero = useSelector((state) => state.heroReducer.hero);
-  let { title, catchphrase, description, PDF } = hero;
+  let { description, PDF } = hero;
 
   !admin
     ? (classDefinition = {
@@ -34,11 +34,11 @@ const Hero = ({ admin = false }) => {
         <div className='hero-titles'>
           <div className={classDefinition.title}>
             {admin && <label>Titre actuel :</label>}
-            <h1>{title}</h1>
+            <h1>Cultivez votre champ de compétences</h1>
           </div>
           <div className={classDefinition.catchphrase}>
             {admin && <label>Sous-Titre actuel :</label>}
-            <h3>{catchphrase}</h3>
+            <h3>avec la FRSEA Auvergne-Rhône-Alpes</h3>
           </div>
         </div>
         {!admin ? (

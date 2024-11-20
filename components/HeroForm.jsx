@@ -104,7 +104,7 @@ const heroForm = ({ blockID }) => {
       ></Button>
       {showEditHero ? (
         <form className='hero-form' id='heroForm' onSubmit={(e) => onSubmit(e)}>
-          <Input
+          {/* <Input
             type='text'
             name='title'
             label='Titre'
@@ -119,7 +119,7 @@ const heroForm = ({ blockID }) => {
             placeholder='Rédigez le sous-titre'
             value={catchphrase}
             onChange={(e) => onChange(e)}
-          />
+          /> */}
           <Input
             name='sampleFile'
             id='fileInput'
